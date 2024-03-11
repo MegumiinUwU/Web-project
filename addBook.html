@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Book Form</title>
+    </head>
+
+    <body>
+        <h2 style="text-align: center;">Add New Book</h2>
+        <p>Thank you for contribution to our library! Please make sure to enter the needed information.</p>
+
+        <form action="#" method="post">
+
+            <div>
+                <label for = "bookID"> ID: </label>
+                <input type="number" id="bookID" name="bookID" min="0" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for = "genre">Category: </label>
+                <input type="text" id="genre" name="genre" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for = "author"> Author: </label>
+                <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for = "description"> Description: </label>
+                <input type="text" id="description" name="description" placeholder="Tell us about this book!" required
+                style="width: 400px; height: 20px; padding: 10px;">
+            </div>
+            
+            <br>
+
+            <div>
+                <input type="reset">
+            </div>
+
+            <br>
+
+            <div>
+                <input type="submit">
+            </div>
+
+            <br>
+
+        </form>
+
+    </body>
+
+</html>
