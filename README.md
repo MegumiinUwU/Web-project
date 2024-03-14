@@ -1,5 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Library Website</title>
 </head>
 
@@ -9,9 +14,8 @@
 
     <h2>Team Members:</h2>
     <ul>
-        <li>Youssef Mohammed (20221202)</li>
-        <li>Mazen AbdelFattah (20230607)</li> 
-        ....
+        <li>Mazen AbdelFattah (20230607)</li>
+        <li>Youssef Mohamed (20221202)</li>
     </ul>
 </body>
 
