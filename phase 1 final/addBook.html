@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book Form</title>
+</head>
+<body>
+   <header>
+    <nav>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="adminsview.html">Home</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="Book Listing.html">View Books</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="search.html">Search</a></li>
+        </ul>
+    </nav>
+    <hr>
+   </header> 
+
+   <main>
+    <h2 style="text-align: center;">Add New Book</h2>
+    <p>Thank you for contribution to our library! Please make sure to enter the needed information.</p>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+
+        <div>
+            <label for="ISBN"> ISBN: </label>
+            <br>
+            <input type="number" id="ISBN" name="ISBN" min="0" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="genre"> Genre: </label>
+            <br>
+            <input type="text" id="genre" name="genre" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="name"> Name: </label>
+            <br>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="author"> Author: </label>
+            <br>
+            <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="description"> Description: </label>
+            <br>
+            <input type="text" id="description" name="description" placeholder="Tell us about this book!" required style="width: 400px; height: 20px; padding: 10px;">
+        </div>
+        
+        <br>
+
+        <div>
+            <label for="cover"> Cover: </label>
+            <br>
+            <input type="file" id="cover" name="cover" accept="image/*">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="publishYear"> Publish Year: </label>
+            <br>
+            <input type="number" id="publishYear" name="publishYear" min="1800">
+        </div>
+
+        <br>
+
+        <div style="display: inline; margin-right: 30px;">
+            <input type="reset">
+            <input type="submit">
+        </div>
+
+        <br>
+    </form>
+   </main>
+
+   <footer>
+    <hr>
+    <p>&copy; 2024 FCAI Online Library</p>
+   </footer>
+</body>
+</html>
+

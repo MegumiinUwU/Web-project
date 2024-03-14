@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Catalog</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="display: inline; margin-right: 20px;"><a href="defaultview.html">Home</a></li>
+                <li style="display: inline; margin-right: 20px;"><a href="Book Listing.html">View Books</a></li>
+                <li style="display: inline; margin-right: 20px;"><a href="search.html">Search</a></li>
+            </ul>
+        </nav>
+        <hr>
+       </header> 
+    <div>
+        <h1>Library Catalog</h1>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter book title or author...">
+            <button type="submit">Search</button>
+        </form>
+        <div id="searchResults">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            var query = document.getElementById("searchInput").value.trim();
+
+            var results = searchBooks(query);
+
+            displayResults(results);
+        });
+
+        function searchBooks(query) {
+            // Placeholder function for searching books (replace with actual search logic)
+            // For demonstration purposes, just returning some dummy data
+            var books = [
+                { title: "One Piece", url: "book1.html" },
+                { title: "Head First Objects-Oriented Analysis and Design", url: "book2.html" },
+                { title: "Fullmetal Alchemist", url: "book3.html" },
+                { title: "Stewart Calculus", url: "book4.html" },
+                { title: "Dune", url: "book5.html" }
+            ];
+
+            // Filtering books based on the query
+            var filteredBooks = books.filter(function(book) {
+                return book.title.toLowerCase().includes(query.toLowerCase());
+            });
+
+            return filteredBooks;
+        }
+
+        function displayResults(results) {
+            var resultsContainer = document.getElementById("searchResults");
+            resultsContainer.innerHTML = ""; 
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = "<p>No results found</p>";
+            } else {
+                var ul = document.createElement("ul");
+                results.forEach(function(book) {
+                    var li = document.createElement("li");
+                    var link = document.createElement("a");
+                    link.href = book.url; // Set the URL of the book page
+                    link.textContent = book.title;
+                    li.appendChild(link);
+                    ul.appendChild(li);
+                });
+                resultsContainer.appendChild(ul);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
