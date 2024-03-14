@@ -1,3 +1,4 @@
+<html lang="en">
 <head>
     <title>Online Library Website</title>
 </head>
