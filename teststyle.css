@@ -1,0 +1,110 @@
+
+
+body {
+    background-color: #F5F4F4;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+.NAV {
+    background-color: #00303F;
+    padding: 10px 0;
+}
+
+.NAV ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.NAV li {
+    display: inline;
+    margin-right: 5px;
+    font-size: small;
+}
+
+.NAV li a {
+    color:#F5F4F4;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.NAV li a:hover {
+    background-color: #023f51;
+}
+
+.book-heading {
+    text-align: center;
+    color: #00303F;
+   
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start of the flex container */
+    margin-top: 20px; /* Adjust margin as needed */
+    max-height: calc(100vh - 200px); /* Limit height and enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.book {
+    flex: 0 0 calc(33.33% - 100px); /* Three boxes per row with some space between */
+    margin: 20px;
+    border-radius: 15px;
+    padding: 10px 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px #00303F;
+}
+
+
+.book img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px; 
+    border-radius: 5px;
+}
+
+.book a {
+    color: #00303F;
+    text-decoration: none;
+    background-color: #CAE4DB;
+}
+
+.book a:hover {
+    color: #CAE4DB;
+}
+
+.borrow-button,
+.wishlist-button {
+    padding: 8px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #CDAC81;
+    color:  #00303F;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.borrow-button:hover,
+.wishlist-button:hover {
+    background-color: #CAE4DB;
+}
+
+.footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #00303F;
+    color:#F5F4F4;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: small;
+}
