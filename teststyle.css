@@ -43,15 +43,6 @@ body {
    
 }
 
-.books {
-    display: flex;
-    flex-wrap: wrap; /* Enable wrapping */
-    justify-content: center;
-    align-items: flex-start; /* Align items to the start of the flex container */
-    margin-top: 20px; /* Adjust margin as needed */
-    max-height: calc(100vh - 200px); /* Limit height and enable scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
 
 .books  {
     display: flex;
