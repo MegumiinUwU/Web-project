@@ -18,19 +18,26 @@ main {
 
 .form-group {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    width: 100%;
+    /*border: red solid;*/
 }
 
 label {
-    /*display: block;*/
+    display: inline-block;
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 16px;
+    width: 100px;
+    /*border: solid rebeccapurple;*/
 }
 
 input[type="text"],
 input[type="number"], 
 textarea {
-    width: 100%;
+    width: calc(100% - 120px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -79,9 +86,16 @@ p{
 
 .small-input{
     display: flex;
-    flex-wrap: wrap;
-    gap: 20%;
-    /*flex: 1 0 calc(50% - 20px);*/
+    flex-wrap: nowrap;
+    flex: 1 1 calc(20% - 120px);
     max-width: 600px;
-    /*border: red solid;*/
+}
+
+.small-input .form-group{
+
+}
+
+.small-input .form-group label{
+
+    
 }
