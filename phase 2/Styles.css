@@ -59,7 +59,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
-    margin-bottom: 100px; 
+    margin-bottom: 100px;
 }
 
 *{
@@ -180,7 +180,6 @@ body {
     border-radius: 10px;
 }
 
-
 .Copywrite {
     font-size: 18px;
 }
@@ -244,3 +243,37 @@ footer{
     align-items: center;
     margin-top: 5rem;
 }
+
+.dark-mode {
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ffffff; /* Light text color */
+}
+
+.dark-mode .NavHome {
+    background-color: #000000; /* Dark background color for navigation */
+}
+
+.dark-mode .NavHome li:hover {
+    background-color: #666666; /* Darker hover color for navigation */
+}
+
+
+#darkModeToggle {
+    background-color: #ffffff; /* Button background color */
+    color: #000000; /* Button text color */
+    border: none;
+    padding: 5px; /* Adjust padding to make it smaller */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    margin: 10px; /* Adjust margin as needed */
+    font-size: 20px; /* Increase font size for emojis */
+    position: fixed; /* Fixed position */
+    top: 50px; /* Distance from top */
+    left: 20px; /* Distance from left */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+#darkModeToggle:hover {
+    background-color: #cccccc; /* Button background color on hover */
+}
+
