@@ -229,6 +229,7 @@ footer{
     color: #555;
     font-size: 15px;
     padding: 0 10px 10px 10px;
+<<<<<<< HEAD
 }
 
 .dark-mode {
@@ -263,3 +264,6 @@ footer{
 #darkModeToggle:hover {
     background-color: #cccccc; /* Button background color on hover */
 }
+=======
+}
+>>>>>>> 8650e5da6469e50973f1657ab9102cfa0c75ef04
