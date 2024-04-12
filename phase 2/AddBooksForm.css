@@ -1,0 +1,87 @@
+/*Add Book Styles*/
+body{
+    overflow-y: scroll;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    /*display: block;*/
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="number"], 
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.button-group {
+    text-align: right;
+}
+
+#cover{
+    display: inline;
+}
+
+input[type="reset"],
+input[type="submit"] {
+    background-color: #00303F;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background-color: #023f51;
+}/**/
+
+.heading{
+    text-align: center;
+}
+
+p{
+    font-size: 18px;
+    /*font-family: Arial, sans-serif;*/
+}
+
+.small-input{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20%;
+    /*flex: 1 0 calc(50% - 20px);*/
+    max-width: 600px;
+    /*border: red solid;*/
+}

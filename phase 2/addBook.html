@@ -5,95 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Book Form</title>
     <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="AddBooksForm.css">
 </head>
 <body>
    <header>
-    <nav class="NAV">
-        <ul style="list-style-type: none; padding: 0; margin: 0;">
-            <li style="display: inline; margin-right: 20px;"><a href="adminsview.html">Home</a></li>
-            <li style="display: inline; margin-right: 20px;"><a href="Book Listing.html">View Books</a></li>
-            <li style="display: inline; margin-right: 20px;"><a href="search.html">Search</a></li>
-        </ul>
+    <nav class="NavHome">
+        <div class="title">FCAI Library</div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="defaultview.html">Home</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="Book Listing.html">View Books</a></li>
+                </ul>
+            </div>
     </nav>
-    <hr>
    </header> 
 
    <main>
-    <h2 style="text-align: center;">Add New Book</h2>
+    <div class="container">
+        <h2 class="heading">Add New Book</h2>
     <p>Thank you for contribution to our library! Please make sure to enter the needed information.</p>
 
     <form action="#" method="post" enctype="multipart/form-data">
+        <div class="small-input">
+            <div class="form-group">
+                <label for="ISBN"> ISBN: </label>
+                <input type="number" id="ISBN" name="ISBN" min="0" required>
+            </div>
 
-        <div>
-            <label for="ISBN"> ISBN: </label>
-            <br>
-            <input type="number" id="ISBN" name="ISBN" min="0" required>
+            <div class="form-group">
+                <label for="publishYear"> Publish Year: </label>
+                <input type="number" id="publishYear" name="publishYear" min="1800">
+            </div>
         </div>
 
-        <br>
-
-        <div>
-            <label for="genre"> Genre: </label>
-            <br>
-            <input type="text" id="genre" name="genre" required>
-        </div>
-
-        <br>
-
-        <div>
+        <div class="form-group">
             <label for="name"> Name: </label>
-            <br>
             <input type="text" id="name" name="name" required>
         </div>
 
-        <br>
-
-        <div>
+        <div class="form-group">
             <label for="author"> Author: </label>
-            <br>
             <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
         </div>
-
-        <br>
-
-        <div>
-            <label for="description"> Description: </label>
-            <br>
-            <input type="text" id="description" name="description" placeholder="Tell us about this book!" required style="width: 400px; height: 20px; padding: 10px;">
+        
+        <div class="form-group">
+            <label for="genre"> Genre: </label>
+            <input type="text" id="genre" name="genre" required>
         </div>
         
-        <br>
+        <div class="form-group">
+            <label for="description"> Description: </label>
+            <textarea id="description" name="description" placeholder="Tell us about this book!" required></textarea>
+        </div>
 
-        <div>
-            <label for="cover"> Cover: </label>
-            <br>
+        <div class="form-group">
+            <label for="cover" id="cover"> Cover: </label>
             <input type="file" id="cover" name="cover" accept="image/*">
         </div>
 
-        <br>
-
-        <div>
-            <label for="publishYear"> Publish Year: </label>
-            <br>
-            <input type="number" id="publishYear" name="publishYear" min="1800">
+        <div class="button-group">
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
         </div>
 
-        <br>
-
-        <div style="display: inline; margin-right: 30px;">
-            <input type="reset">
-            <input type="submit">
-        </div>
-
-        <br>
     </form>
+    </div>
+    
    </main>
 
    <footer class="footer">
-    <hr>
     <p>&copy; 2024 FCAI Online Library</p>
    </footer>
 </body>
 </html>
 
-<!--Testing successful branch switch -->
