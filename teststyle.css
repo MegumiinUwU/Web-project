@@ -63,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 300px;
+    width: calc(90%);
     height: 575px;
     background-color: #fff;
     border: 1px solid  #ccc;
