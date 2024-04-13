@@ -47,7 +47,11 @@ body {
 .books  {
    display: grid;
    grid-template-columns: repeat(auto-fit ,minmax(270px  , 1fr ));
-    gap: 20px;
+   gap: 20px;
+   max-width: 90%;
+   margin: 0 auto;
+   justify-items: center;
+   align-items: center;
 }
 
 .book ,.book-display {
@@ -64,8 +68,10 @@ body {
     border: 1px solid  #ccc;
     overflow: hidden;
 }
+
 .book-display{
     height: 450px;
+}
 
 
 .book img ,.book-display img {
