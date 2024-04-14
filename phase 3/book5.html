@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Details</title>
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="Styles/Books.css">
+    <link rel="stylesheet" href="Styles/HomeStyles.css">
 </head>
 <body>
-    <header>
-        <nav class="NAV">
-            <ul style="list-style-type: none; padding: 0; margin: 0;">
-                <li style="display: inline; margin-right: 20px;"><a href="defaultview.html">Home</a></li>
-                <li style="display: inline; margin-right: 20px;"><a href="Book Listing.html">View Books</a></li>
-                <li style="display: inline; margin-right: 20px;"><a href="search.html">Search</a></li>
-            </ul>
+    <header> 
+        <nav class="NavHome">
+            <div class="title">FCAI Library</div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="usersView.html">Home</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="Borrowed Books.html">Borrow books</a></li>
+                    <li><a href="defaultview.html">Logout</a></li>
+                </ul>
+            </div>
         </nav>
-        <hr>
-       </header> 
+    </header>
     <header>
         <h1>Book Details</h1>
     </header>
@@ -24,7 +34,7 @@
     <main>
         <article class="Book Details">
             <div>
-                <img src="book5.jpg" alt="Book Cover">
+                <img src="Images/book5.jpg" alt="Book Cover">
             </div>
             <div>
                 <h2>Title: Dune </h2>

@@ -1,0 +1,44 @@
+
+
+.Thetitle{
+        color: #023f51;
+        padding: 5px;
+        text-align: center;
+        
+}
+
+
+main {
+    margin: -10px auto 150px;
+    max-width: 800px;
+    padding: 20px ;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 0 20px gray
+}
+
+article.Book {
+    display: flex;
+}
+
+article.Book div {
+    flex: 1;
+    padding: 10px;
+}
+
+article.Book img {
+    padding: 20px;
+    max-width: 300px;
+    height: auto;
+    display:flex;
+    margin: 0 auto;
+}
+
+article.Book h2 {
+    color: #00303F;
+}
+
+article.Book p {
+    color: #00303F;
+    line-height: 1.6;
+}

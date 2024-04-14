@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Library</title>
-    <link rel="stylesheet" href="Styles.css">
-    <script src="buttonScript.js" defer></script>
+    <link rel="stylesheet" href="Styles/HomeStyles.css">
+    <script src="JavaScripts/buttonScript.js" defer></script>
+    <script src="JavaScripts/DarkmodeButton.Js" defer></script>
 </head>
 <body>
     <header> 
@@ -18,16 +19,16 @@
             </a>
             <div class="navbar-links">
                 <ul>
-                    <li><a href="defaultview.html">Home</a></li>
+                    <li><a href="Profile.html">Profile</a></li>
+                    <li><a href="adminsview.html">Home</a></li>
                     <li><a href="search.html">Search</a></li>
-                    <li><a href="Book Listing.html">View Books</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="addBook.html">Add Book</a></li>
+                    <li><a href="defaultview.html">Logout</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-
+    <button id="darkModeToggle">🌞🌛</button>
     <!-- <iframe src="addBook.html"  width="100%" height="150px" style="border:none;" ></iframe> -->
 
     <div class="intro">
@@ -36,13 +37,13 @@
     </div>
 
     <div class="imagecontainer">
-        <img id="homepic1" src="/phase 2\librarypic.jpg">
+        <img id="homepic1" src="Images/librarypic.jpg">
     </div>
 
     <section class="books">
 
         <div class="book">
-            <img src="Book1.jpg" alt="Book Cover">
+            <img src="Images/Book1.jpg" alt="Book Cover">
             <div class="txt">
                 <h2>Title: One Piece </h2>
                 <p>Author: Eiichiro Oda </p>
@@ -52,7 +53,7 @@
         </div>
 
         <div class="book">
-            <img src="book2.jpg" alt="Book Cover">
+            <img src="Images/book2.jpg" alt="Book Cover">
             <div class="txt">
                 <h2>Title: Head First Objects-Oriented Analysis and Design </h2>
                 <p>Author:  Brett D. McLaughlin, Gary Pollice, and David West. </p>
@@ -62,7 +63,7 @@
         </div>
 
         <div class="book">
-            <img src="book3.jpg" alt="Book Cover">
+            <img src="Images/book3.jpg" alt="Book Cover">
             <div class="txt">
                 <h2>Title: Fullmetal Alchemist </h2>
                 <p>Description: "Fullmetal Alchemist" is a Japanese manga series written and illustrated by Hiromu Arakawa. It was serialized in Square Enix's Monthly Shōnen Gangan magazine between August 2001 and June 2010, with the publisher later collecting the individual chapters into twenty-seven tankōbon volumes. The world of Fullmetal Alchemist is styled after the European Industrial Revolution. Set in a fictional universe in which alchemy is one of the most advanced scientific techniques, the story follows two alchemist brothers named Edward and Alphonse Elric, who are searching for the philosopher's stone to restore their bodies after a failed attempt to bring their mother back to life using alchemy.
@@ -85,5 +86,3 @@
     </footer>
 </body>
 </html>
-
-
