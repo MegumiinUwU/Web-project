@@ -169,7 +169,7 @@ body {
 }
 
 footer {
-  position: relative;
+  position: dynamic;
   bottom: 0;
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
