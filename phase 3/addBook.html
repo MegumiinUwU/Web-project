@@ -1,126 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Book Form</title>
-    <link rel="stylesheet" href="Styles/Addbook.css">
-    <link rel="stylesheet" href="Styles/HomeStyles.css">
-</head>
-<body>
-    <header> 
-        <nav class="NavHome">
-            <div class="title">FCAI Library</div>
-            <a href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
-                <ul>
-                    <li><a href="Profile.html">Profile</a></li>
-                    <li><a href="usersView.html">Home</a></li>
-                    <li><a href="search.html">Search</a></li>
-                    <li><a href="Borrowed Books.html">Borrow books</a></li>
-                    <li><a href="defaultview.html">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
+    <link rel="stylesheet" href="Styles/HomeStyles.css" />
+    <link rel="stylesheet" href="Styles/Addbook.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="NavHome">
+        <div class="title">FCAI Library</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="usersView.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="Borrowed Books.html">Borrow books</a></li>
+            <li><a href="defaultview.html">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <div class="container">
-            <h2 class="heading">Add New Book</h2>
-        <p>Thank you for contribution to our library! Please make sure to enter the needed information.</p>
-    
+      <div class="container">
+        <h2 class="heading">Add New Book</h2>
+        <p>
+          Thank you for contribution to our library! Please make sure to enter
+          the needed information.
+        </p>
+
         <form action="#" method="post" enctype="multipart/form-data">
-             <div class="form-group">
-                <label for="name"> Name: </label>
-                <input type="text" id="name" name="name" required>
-            </div>
-    
+          <div class="form-group">
+            <label for="name"> Name: </label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="author"> First Author: </label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="Who wrote this book?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="author"> Second Author: </label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="Who wrote this book?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="author"> Third Author: </label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="Who wrote this book?"
+              required
+            />
+          </div>
+
+          <div class="small-input">
             <div class="form-group">
-                <label for="author"> First Author: </label>
-                <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
+              <label for="ISBN"> ISBN: </label>
+              <input type="number" id="ISBN" name="ISBN" min="0" required />
             </div>
-    
+
             <div class="form-group">
-                <label for="author"> Second Author: </label>
-                <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
+              <label for="publishYear"> Publish Year: </label>
+              <input
+                type="number"
+                id="publishYear"
+                name="publishYear"
+                min="1800"
+              />
             </div>
-    
-            <div class="form-group">
-                <label for="author"> Third Author: </label>
-                <input type="text" id="author" name="author" placeholder="Who wrote this book?" required>
-            </div>
-    
-            <div class="small-input">
-                <div class="form-group">
-                    <label for="ISBN"> ISBN: </label>
-                    <input type="number" id="ISBN" name="ISBN" min="0" required>
-                </div>
-    
-                <div class="form-group">
-                    <label for="publishYear"> Publish Year: </label>
-                    <input type="number" id="publishYear" name="publishYear" min="1800">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="genre"> Genre: </label>
-                <select id="genre" name="genre" required>
-                    <option value="" disabled selected>Select Genre</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Science Fiction">Science Fiction</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Thriller">Thriller</option>
-                    <option value="Horror">Horror</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Historical Fiction">Historical Fiction</option>
-                    <option value="Biography">Biography</option>
-                    <option value="Self-Help">Self-Help</option>
-                    <option value="Cookbook">Cookbook</option>
-                    <!-- Academic options -->
-                    <option value="Science">Science</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Physics">Physics</option>
-                    <option value="Chemistry">Chemistry</option>
-                    <option value="Biology">Biology</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Medicine">Medicine</option>
-                    <option value="Psychology">Psychology</option>
-                    <option value="Sociology">Sociology</option>
-                    <option value="Philosophy">Philosophy</option>
-                    <option value="Economics">Economics</option>
-                    <option value="Political Science">Political Science</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="description"> Description: </label>
-                <textarea id="description" name="description" placeholder="Tell us about this book!" required></textarea>
-            </div>
-    
-            <div class="form-group">
-                <label for="cover" id="cover"> Cover: </label>
-                <input type="file" id="cover" name="cover" accept="image/*">
-            </div>
-    
-            <div class="button-group">
-                <input type="reset" value="Reset">
-                <input type="submit" value="Submit">
-            </div>
-    
+          </div>
+
+          <div class="form-group">
+            <label for="genre"> Genre: </label>
+            <select id="genre" name="genre" required>
+              <option value="" disabled selected>Select Genre</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Horror">Horror</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Historical Fiction">Historical Fiction</option>
+              <option value="Biography">Biography</option>
+              <option value="Self-Help">Self-Help</option>
+              <option value="Cookbook">Cookbook</option>
+              <!-- Academic options -->
+              <option value="Science">Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Medicine">Medicine</option>
+              <option value="Psychology">Psychology</option>
+              <option value="Sociology">Sociology</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Economics">Economics</option>
+              <option value="Political Science">Political Science</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description"> Description: </label>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Tell us about this book!"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="cover" id="cover"> Cover: </label>
+            <input type="file" id="cover" name="cover" accept="image/*" />
+          </div>
+
+          <div class="button-group">
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Submit" />
+          </div>
         </form>
-        </div>
-        
-       </main>
-    
-       <footer class="footer">
-        <p>&copy; 2024 FCAI Online Library</p>
-       </footer>
-    </body>
-    </html>
-    
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 FCAI Online Library</p>
+    </footer>
+  </body>
+</html>
