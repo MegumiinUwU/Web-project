@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Catalog</title>
-    <link rel="stylesheet" href="Styles/Search.css">
-    <link rel="stylesheet" href="Styles/HomeStyles.css">
-</head>
-<body>
-    <header> 
-        <nav class="NavHome">
-            <div class="title">FCAI Library</div>
-            <a href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
-                <ul>
-                    <li><a href="Profile.html">Profile</a></li>
-                    <li><a href="usersView.html">Home</a></li>
-                    <li><a href="search.html">Search</a></li>
-                    <li><a href="Borrowed Books.html">Borrow books</a></li>
-                    <li><a href="defaultview.html">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div>
-        <h1>Library Catalog</h1>
-        <form id="searchForm">
-            <input type="text" id="searchInput" placeholder="Enter book title, author, or genre...">
-            <button type="submit">Search</button>
-        </form>
-        <div id="searchResults">
-            <!-- Search results will be displayed here -->
+    <link rel="stylesheet" href="Styles/Search.css" />
+    <link rel="stylesheet" href="Styles/HomeStyles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="NavHome">
+        <div class="title">FCAI Library</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="usersView.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="Borrowed Books.html">Borrow books</a></li>
+            <li><a href="defaultview.html">Logout</a></li>
+          </ul>
         </div>
+      </nav>
+    </header>
+    <div class="MegumiinUwU2">
+      <h1>Library Catalog</h1>
+      <form id="searchForm">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Enter book title, author, or genre..."
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div id="searchResults">
+        <!-- Search results will be displayed here -->
+      </div>
     </div>
 
     <script src="JavaScripts/search.js"></script>
-</body>
-<footer class="footer">
+  </body>
+  <footer class="footer">
     <p>&copy; 2024 FCAI Online Library</p>
-</footer>
+  </footer>
 </html>

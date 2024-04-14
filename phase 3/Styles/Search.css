@@ -1,83 +1,87 @@
+.MegumiinUwU2 {
+  margin-bottom: 400px;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F5F4F4; /* Light gray background */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f4f4; /* Light gray background */
 }
 
 header {
-    background-color: #00303F; /* Dark blue header background */
-    color: white; /* White text color for header */
-    padding: 20px;
+  background-color: #00303f; /* Dark blue header background */
+  color: white; /* White text color for header */
+  padding: 20px;
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white; /* White link color for header */
+  text-decoration: none;
+  color: white; /* White link color for header */
 }
 
 h1 {
-    color: #00303F; /* Dark blue header text color */
-    text-align: center;
-    margin-top: 20px;
+  color: #00303f; /* Dark blue header text color */
+  text-align: center;
+  margin-top: 20px;
 }
 
 #searchForm {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 #searchInput {
-    padding: 10px;
-    border: 1px solid #00303F; /* Dark blue border */
-    border-radius: 5px;
-    width: 60%;
+  padding: 10px;
+  border: 1px solid #00303f; /* Dark blue border */
+  border-radius: 5px;
+  width: 60%;
 }
 
 #searchInput::placeholder {
-    color: #00303F; /* Dark blue placeholder text color */
+  color: #00303f; /* Dark blue placeholder text color */
 }
 
 #searchForm button {
-    padding: 10px 20px;
-    background-color: #00303F; /* Dark blue button background */
-    color: white; /* White button text color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #00303f; /* Dark blue button background */
+  color: white; /* White button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #searchForm button:hover {
-    background-color: #023f51; /* Darker blue on hover */
+  background-color: #023f51; /* Darker blue on hover */
 }
 
 #searchResults {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #searchResults ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 #searchResults ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer {
-    background-color: #00303F; /* Dark blue footer background */
-    color: white; /* White text color for footer */
-    text-align: center;
-    padding: 20px;
+  background-color: #00303f; /* Dark blue footer background */
+  color: white; /* White text color for footer */
+  text-align: center;
+  padding: 20px;
 }
