@@ -181,7 +181,7 @@ body {
     box-sizing: border-box;
 }
 
-@media(max-width: 590px){
+@media(max-width: 650px){
     .toggle-button{
         display: flex;
     }
