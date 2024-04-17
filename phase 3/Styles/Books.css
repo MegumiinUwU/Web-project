@@ -68,6 +68,10 @@ article.Book p {
 }
 
 .buttons{
+    display: none;
+}
+
+.buttons.active{
     display: flex;
 }
 
