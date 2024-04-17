@@ -59,6 +59,8 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
+  height: auto;
+  width: auto;
 }
 
 * {
@@ -160,8 +162,6 @@ body {
 
 .decoration1 {
   color: white;
-  /*position: relative;
-    top: anchor(bottom);*/
   width: 20px;
   height: 70px;
   background-color: #00303f;
@@ -169,7 +169,7 @@ body {
 }
 
 footer {
-  position: dynamic;
+  position: fixed;
   bottom: 0;
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;

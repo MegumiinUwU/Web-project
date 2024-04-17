@@ -1,9 +1,10 @@
 body {
   overflow-y: scroll;
   padding: 0;
+  padding-bottom: 100px;
 }
 main {
-  max-width: 800px;
+  max-width: 75%;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -12,7 +13,7 @@ main {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -68,11 +69,15 @@ input[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: bold;
+  border: 2px solid #00303F;
 }
 
 input[type="reset"]:hover,
 input[type="submit"]:hover {
   background-color: #023f51;
+  background-color: #CAE4DB;
+  color: #00303F;
 } /**/
 
 .heading {
@@ -89,4 +94,10 @@ p {
   flex: 1 1 calc(20% - 120px);
   max-width: 600px;
   gap: 10%;
+}
+
+@media(max-width: 516px){
+  .small-input{
+    flex-wrap: wrap;
+  }
 }
