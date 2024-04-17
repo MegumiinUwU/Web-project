@@ -20,10 +20,9 @@ main {
 .form-group {
   margin-bottom: 20px;
   display: flex;
-  flex-wrap: nowrap;
   gap: 30px;
+  align-items: center;
   width: 100%;
-  /* /border: red solid;/ */
 }
 
 label {
@@ -32,12 +31,11 @@ label {
   margin-bottom: 5px;
   font-size: 16px;
   width: 100px;
-  /* /border: solid rebeccapurple;/ */
 }
 
 input[type="text"],
 input[type="number"],
-textarea {
+textarea, #genre{
   width: calc(100% - 120px);
   padding: 10px;
   border: 1px solid #ccc;
@@ -78,7 +76,7 @@ input[type="submit"]:hover {
   background-color: #023f51;
   background-color: #CAE4DB;
   color: #00303F;
-} /**/
+}
 
 .heading {
   text-align: center;
@@ -90,14 +88,17 @@ p {
 
 .small-input {
   display: flex;
-  flex-wrap: nowrap;
-  flex: 1 1 calc(20% - 120px);
-  max-width: 600px;
-  gap: 10%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-@media(max-width: 516px){
-  .small-input{
-    flex-wrap: wrap;
+.small-input .form-group{
+  flex-basis: calc(50% - 20px);
+}
+
+@media(max-width: 775px){
+  .small-input .form-group{
+    flex-basis: 100%;
   }
 }
