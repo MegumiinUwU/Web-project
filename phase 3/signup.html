@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - Online Library</title>
+    <script src="JavaScripts/DOB.js" defer></script>
     <script src="JavaScripts/buttonScript.js" defer></script>
     <link rel="stylesheet" href="Styles/Form.css" />
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
@@ -46,11 +47,6 @@
               <input type="date" id="dob" name="dob" required />
               <span></span>
               <label for="dob">Date of Birth</label>
-            </div>
-            <div class="formElement">
-              <input type="tel" id="phone" name="phone" required />
-              <span></span>
-              <label for="phone">Phone Number</label>
             </div>
             <div>
               <label for="country_code">Select the country code:</label>
@@ -644,6 +640,11 @@
                   </option>
                 </optgroup>
               </select>
+            </div>
+            <div class="formElement">
+              <input type="tel" id="phone" name="phone" required required maxlength="15"/>
+              <span></span>
+              <label for="phone">Phone Number</label>
             </div>
             <br />
             <div>
