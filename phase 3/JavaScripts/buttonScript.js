@@ -37,7 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggleButton.addEventListener('click', () => {
         navbarLinks.classList.toggle('active')
-    })
+    });
+
+    const showButtons = document.getElementsByClassName("buttons")[0];
+    function updateButtonVisibility(){
+        const userType = getUserTypeFromStorage(); 
+        if(userType == 'admin' || userType == 'user'){
+            showButtons.classList.toggle('active');
+        }
+    }
 
     function updateNavigationBar() {
         const userType = getUserTypeFromStorage(); 
@@ -78,4 +86,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateNavigationBar();
+    updateButtonVisibility();
 });
