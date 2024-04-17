@@ -40,12 +40,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const showButtons = document.getElementsByClassName("buttons")[0];
+    const showWishlist = document.querySelector('.wishlist');
+
     function updateButtonVisibility(){
         const userType = getUserTypeFromStorage(); 
         if(userType == 'admin' || userType == 'user'){
             showButtons.classList.toggle('active');
         }
     }
+
+    /*function displayWishlist(){
+        const userType = getUserTypeFromStorage(); 
+        if(userType == 'admin' || userType == 'user'){
+            showWishlist.style.display = 'flex';
+        }else{
+            showWishlist.style.display = 'none';
+        }
+    }*/
 
     function updateNavigationBar() {
         const userType = getUserTypeFromStorage(); 
@@ -87,4 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateNavigationBar();
     updateButtonVisibility();
+    /*displayWishlist();*/
 });
+/*<li class="wishlist"><a href="wishlist.html?userType=user">My Wishlist</a></li>*/

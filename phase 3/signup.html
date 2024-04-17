@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - Online Library</title>
+    <script src="JavaScripts/buttonScript.js" defer></script>
     <link rel="stylesheet" href="Styles/Form.css" />
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
-    <script src="JavaScripts/buttonScript.js" defer></script>
   </head>
   <body>
     <div class="formBackground">
@@ -16,7 +16,7 @@
       <main class="form">
         <section>
           <h1>SIGN UP</h1>
-          <form class="Sign up form">
+          <form class="Sign up form" id="signupForm" action="javascript:getUserType()">
             <div class="formElement">
               <input type="text" id="username" name="username" required />
               <span></span>
@@ -45,7 +45,7 @@
             <div class="formElement">
               <input type="date" id="dob" name="dob" required />
               <span></span>
-              <label for="dob" >Date of Birth</label>
+              <label for="dob">Date of Birth</label>
             </div>
             <div class="formElement">
               <input type="tel" id="phone" name="phone" required />
@@ -649,6 +649,7 @@
             <div>
               <label for="is_admin">Account Type:</label>
               <select id="is_admin" name="is_admin" required>
+                <option value="" disabled selected>Select Account Type</option>
                 <option value="0">User</option>
                 <option value="1">Admin</option>
               </select>
