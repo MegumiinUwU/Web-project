@@ -148,3 +148,33 @@ h1 {
 .book-details {
   margin-left: 20px; /* Add spacing between the image and text */
 }
+
+.dark-mode {
+  background-color: #1a1a1a; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+.dark-mode header {
+  background-color: #000000; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+#darkModeToggle {
+  background-color: #ffffff; /* Button background color */
+  color: #000000; /* Button text color */
+  border: none;
+  padding: 5px; /* Adjust padding to make it smaller */
+  border-radius: 50%; /* Make it round */
+  cursor: pointer;
+  margin: 10px; /* Adjust margin as needed */
+  font-size: 20px; /* Increase font size for emojis */
+  position: fixed; /* Fixed position */
+  top: 100px; /* Distance from top */
+  left: 20px; /* Distance from left */
+  z-index: 999; /* Ensure it's above other content */
+}
+.dark-mode h1 {
+  color: #ffffff;
+}
+
+

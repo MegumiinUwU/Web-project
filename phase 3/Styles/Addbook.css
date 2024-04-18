@@ -90,3 +90,20 @@ p {
   max-width: 600px;
   gap: 10%;
 }
+.dark-mode {
+  background-color: #1a1a1a; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+.dark-mode main {
+  color: #ffffff;
+  background-color: #00363f;
+}
+
+.dark-mode .NavHome {
+  background-color: #000000; /* Dark background color for navigation */
+}
+
+.dark-mode .NavHome li:hover {
+  background-color: #666666; /* Darker hover color for navigation */
+}

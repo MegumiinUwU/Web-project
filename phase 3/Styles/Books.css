@@ -49,3 +49,7 @@ article.Book p {
     color: #00303F;
     line-height: 1.6;
 }
+.dark-mode {
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }

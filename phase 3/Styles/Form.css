@@ -165,3 +165,26 @@ select {
   justify-content: center;
   align-items: center;
 }
+#darkModeToggle {
+  background-color: #ffffff; /* Button background color */
+  color: #000000; /* Button text color */
+  border: 2px solid transparent; /* Adjust border size */
+  padding: 4px; /* Adjust padding to make it smaller */
+  border-radius: 50%; /* Make it round */
+  cursor: pointer;
+  margin: 10px; /* Adjust margin as needed */
+  font-size: 20px; /* Decrease font size */
+  width: 75px; /* Set fixed width */
+  height: 40px; /* Set fixed height */
+  position: fixed; /* Fixed position */
+  top: 20px; /* Distance from top */
+  right: 20px; /* Distance from right */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+#darkModeToggle:hover {
+  background-color: #cccccc; /* Button background color on hover */
+  border-color: #000000; /* Change border color on hover */
+}
+
+
