@@ -57,25 +57,6 @@ function createBookListing(book) {
     title.textContent = book.title;
     bookListing.appendChild(title);
 
-    const author = document.createElement('p');
-    author.textContent = "Author: " + book.author;
-    bookListing.appendChild(author);
-
-    const genre = document.createElement('p');
-    genre.textContent = "Genre: " + book.genre.join(', ');
-    bookListing.appendChild(genre);
-
-    const publicationDate = document.createElement('p');
-    publicationDate.textContent = "Publication Date: " + book.publicationDate;
-    bookListing.appendChild(publicationDate);
-
-    const ISBN = document.createElement('p');
-    ISBN.textContent = "ISBN: " + book.ISBN;
-    bookListing.appendChild(ISBN);
-
-    const description = document.createElement('p');
-    description.textContent = book.description;
-    bookListing.appendChild(description);
 
     return bookListing;
 }
