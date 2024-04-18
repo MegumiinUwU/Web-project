@@ -20,12 +20,15 @@ main {
     border-style:solid;
     border-color:#023f51;
     border-radius: 20px;
-    box-shadow: 0 0 20px gray
+    box-shadow: 0 0 20px gray;
+    width: auto;
 }
 
 
 article.Book {
     display: flex;
+    max-width: 100%;
+    gap: 10px;
 }
 
 article.Book div {
@@ -34,11 +37,14 @@ article.Book div {
 }
 
 article.Book img {
-    padding: 20px;
+    /*padding: 20px;*/
     max-width: 300px;
     height: auto;
     display:flex;
     margin: 0 auto;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
 }
 
 article.Book h2 {
@@ -49,7 +55,72 @@ article.Book p {
     color: #00303F;
     line-height: 1.6;
 }
+
 .dark-mode {
     background-color: #1a1a1a; /* Dark background color */
     color: #ffffff; /* Light text color */
   }
+
+
+@media(max-width:800px) {
+    main {
+        max-width: 85%;
+        width: auto;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media(max-width:620px) {
+    article.Book {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.buttons{
+    display: none;
+}
+
+.buttons.active{
+    display: flex;
+}
+
+.borrow-button,
+.wishlist-button {
+    padding: 8px 20px;
+    margin: 5px ;
+    border: none;
+    align-self: center;
+    width: 75%;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.borrow-button {
+    background-color: #00303F;
+    color: #F5F4F4;
+    border: 2px solid #00303F;
+}
+
+.borrow-button:hover {
+    background-color: #CAE4DB;
+    color: #00303F;
+}
+
+.wishlist-button {
+    background-color: #CDAC81;
+    color: #00303F;
+    border: 2px solid #CDAC81;
+}
+
+.wishlist-button:hover {
+    background-color: #CAE4DB;
+    color: #00303F;
+}
+

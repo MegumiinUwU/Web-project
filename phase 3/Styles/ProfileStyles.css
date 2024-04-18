@@ -105,3 +105,26 @@ input[type="file"] {
 .NAV li:hover {
   background-color: #023f51;
 }
+
+.button{
+  padding: 10px 20px;
+  border: none;
+  width: 30%;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #00303F;
+  color: #F5F4F4;
+  border: 2px solid #00303F;
+}
+
+.button:hover {
+  background-color: #CAE4DB;
+  color: #00303F;
+}
+
+.center-button {
+  text-align: center;
+}

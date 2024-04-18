@@ -35,10 +35,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.getElementsByClassName("toggle-button")[0];
     const navbarLinks = document.getElementsByClassName("navbar-links")[0];
 
-
     toggleButton.addEventListener('click', () => {
-        navbarLinks.classList.toggle('active');
+        navbarLinks.classList.toggle('active')
     });
+
+    const showButtons = document.getElementsByClassName("buttons")[0];
+    const showWishlist = document.querySelector('.wishlist');
+
+    function updateButtonVisibility(){
+        const userType = getUserTypeFromStorage(); 
+        if(userType == 'admin' || userType == 'user'){
+            showButtons.classList.toggle('active');
+        }
+    }
+
+    /*function displayWishlist(){
+        const userType = getUserTypeFromStorage(); 
+        if(userType == 'admin' || userType == 'user'){
+            showWishlist.style.display = 'flex';
+        }else{
+            showWishlist.style.display = 'none';
+        }
+    }*/
 
     function updateNavigationBar() {
         const userType = getUserTypeFromStorage(); 
@@ -77,7 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </ul>
             `;
         }
+        
     }
 
     updateNavigationBar();
+    updateButtonVisibility();
+    /*displayWishlist();*/
 });
+
