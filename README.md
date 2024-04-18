@@ -19,7 +19,10 @@ This project was developed as part of the Web Technology course (IS231) at the F
 ## Todo List
 
 - [ ] Payment Page
+- [x] Inventory and wish list for user
 - [ ] Cancel the ability to borrow the same book twice or from the wish list
 - [ ] Fix Home Footer
 - [ ] Implement file upload functionality in "Add Book"
 - [ ] Profile Picture Fix
+- [ ] Password verification on the run so that it gives hints with Password Generator (future phase)
+      
