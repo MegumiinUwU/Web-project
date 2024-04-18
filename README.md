@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+# DON"T PUSH TO THE MAIN
 
-<body>
-    <h1>Web Technology Project: Online Library Website</h1>
-    <p>This project was developed as part of the Web Technology course (IS231) at the Faculty of Computers and Artificial Intelligence, Cairo University. The website is designed to help users view and search for books available for borrowing.</p>
-    <h2>Team Members:</h2>
-    <ul>
-        <li>Mazen AbdelFattah Omar (20230607)</li>
-        <li>Youssef Mohamed (20221202)</li>
-        <li>Mariam Amro Ahmed (20221217)</li>
-        <li>Nadra Mahmoud (20220355)</li>
-        <li>Rana Ibrahim Bassiouny (20220130)</li>
-        <li>Nada Ahmed Soltan (20221253)</li>
-    </ul>   
-</body>
 
-</html>
+
+# Web Technology Project: Online Library Website
+
+This project was developed as part of the Web Technology course (IS231) at the Faculty of Computers and Artificial Intelligence, Cairo University. The website is designed to help users view and search for books available for borrowing.
+
+## Team Members:
+
+- Mazen AbdelFattah Omar (20230607)
+- Youssef Mohamed (20221202)
+- Mariam Amro Ahmed (20221217)
+- Nadra Mahmoud (20220355)
+- Rana Ibrahim Bassiouny (20220130)
+- Nada Ahmed Soltan (20221253)
+
+## Todo List
+
+- [ ] Payment Page
+- [x] Inventory and wish list for user
+- [ ] Cancel the ability to borrow the same book twice or from the wish list
+- [ ] Fix Home Footer
+- [ ] Implement file upload functionality in "Add Book"
+- [ ] Profile Picture Fix
+- [ ] Password verification on the run so that it gives hints with Password Generator (future phase)
+      
