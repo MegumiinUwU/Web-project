@@ -1,5 +1,5 @@
 // Array of books
-const books = [
+const boooks = [
     { title: "One Piece", author: "Eiichiro Oda", genre: "Manga", url: "book1.html", image: "Images/book1.jpg" },
     { title: "Head First Objects-Oriented Analysis and Design", author: "Brett D. McLaughlin", genre: "Programming", url: "book2.html", image: "Images/book2.jpg" },
     { title: "Fullmetal Alchemist", author: "Hiromu Arakawa", genre: "Manga", url: "book3.html", image: "Images/book3.jpg" },
@@ -10,7 +10,7 @@ const books = [
 // Function to add a book to the borrowed list
 function addToBorrowed(bookId) {
     // Get the book URL based on the book ID
-    const book = books[bookId - 1];
+    const book = boooks[bookId - 1];
     const bookUrl = book.url;
 
     // Get the current list of borrowed books from localStorage or initialize an empty array
@@ -72,7 +72,7 @@ function generateBorrowed() {
     // Generate borrowed items for each book in the borrowed list and append them to the container
     borrowed.forEach((bookUrl, index) => {
         // Find the corresponding book object based on the URL
-        const book = books.find(book => book.url === bookUrl);
+        const book = boooks.find(book => book.url === bookUrl);
 
         // Debugging: Log the found book object
         console.log("Book object:", book);
@@ -142,7 +142,7 @@ document.addEventListener('click', function(event) {
 // Add event listener to handle clicks on any return button
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('return-button')) {
-        const bookUrl = event.target.dataset.bookUrl;
+        const bookUrl = event.target.dataset.book-url;
         removeFromBorrowed(bookUrl);
     }
 });

@@ -10,7 +10,7 @@ const books = [
 // Function to add a book to the wishlist
 function addToWishlist(bookId) {
     // Get the book URL based on the book ID
-    const book = books[bookId - 1];
+    const book = boooks[bookId - 1];
     const bookUrl = book.url;
 
     // Get the current list of books from localStorage or initialize an empty array
@@ -58,7 +58,7 @@ function generateWishlist() {
     // Generate wishlist items for each book in the wishlist and append them to the container
     wishlist.forEach((bookUrl, index) => {
         // Find the corresponding book object based on the URL
-        const book = books.find(book => book.url === bookUrl);
+        const book = boooks.find(book => book.url === bookUrl);
 
         // Create a div element for the wishlist item
         const wishlistItem = document.createElement('div');
