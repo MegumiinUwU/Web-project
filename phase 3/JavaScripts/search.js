@@ -1,10 +1,10 @@
 // Array of books
 var books = [
-    { title: "One Piece", author: "Eiichiro Oda", genre: "Manga", url: "book1.html" },
-    { title: "Head First Objects-Oriented Analysis and Design", author: "Brett D. McLaughlin", genre: "Programming", url: "book2.html" },
-    { title: "Fullmetal Alchemist", author: "Hiromu Arakawa", genre: "Manga", url: "book3.html" },
-    { title: "Stewart Calculus", author: "James Stewart", genre: "Mathematics", url: "book4.html" },
-    { title: "Dune", author: "Frank Herbert", genre: "Science Fiction", url: "book5.html" }
+    { title: "One Piece", author: "Eiichiro Oda", genre: "Manga", url: "book1.html", image: "Images/book1.jpg" },
+    { title: "Head First Objects-Oriented Analysis and Design", author: "Brett D. McLaughlin", genre: "Programming", url: "book2.html", image: "Images/book2.jpg" },
+    { title: "Fullmetal Alchemist", author: "Hiromu Arakawa", genre: "Manga", url: "book3.html", image: "Images/book3.jpg" },
+    { title: "Stewart Calculus", author: "James Stewart", genre: "Mathematics", url: "book4.html", image: "Images/book4.jpg" },
+    { title: "Dune", author: "Frank Herbert", genre: "Science Fiction", url: "book5.html", image: "Images/book5.jpg" }
 ];
 
 // Function to search books by title, author, or genre
@@ -27,16 +27,39 @@ function displayResults(results) {
     if (results.length === 0) {
         resultsContainer.innerHTML = "<p>No results found</p>";
     } else {
-        var ul = document.createElement("ul");
         results.forEach(function(book) {
-            var li = document.createElement("li");
+            // Create container for each book
+            var div = document.createElement("div");
+            div.classList.add("book-container");
+
+            // Create image element
+            var img = document.createElement("img");
+            img.src = book.image; // Set the image source
+            img.alt = book.title; // Set alt text for accessibility
+            img.classList.add("book-image"); // Apply CSS class for styling
+            div.appendChild(img);
+
+            // Create element for book details
+            var details = document.createElement("div");
+            details.classList.add("book-details");
+
+            // Create link element for book title
             var link = document.createElement("a");
             link.href = book.url; // Set the URL of the book page
             link.textContent = book.title;
-            li.appendChild(link);
-            ul.appendChild(li);
+            details.appendChild(link);
+
+            // Add author information
+            var author = document.createElement("p");
+            author.textContent = "By " + book.author;
+            details.appendChild(author);
+
+            // Append details to the container
+            div.appendChild(details);
+
+            // Append container to the results container
+            resultsContainer.appendChild(div);
         });
-        resultsContainer.appendChild(ul);
     }
 }
 
