@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navbarLinks.innerHTML = `
                 <ul>
                     <li><a href="Profile.html?userType=user">Profile</a></li>
+                    <li><a href="Inventory.html?userType=user">Inventory</a></li>
                     <li><a href="usersView.html?userType=user">Home</a></li>
                     <li><a href="wishlist.html?userType=user">Wishlist</a></li>
                     <li><a href="search.html?userType=user">Search</a></li>
