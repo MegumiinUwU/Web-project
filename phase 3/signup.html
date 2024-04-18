@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - Online Library</title>
+    <script src="JavaScripts/DOB.js" defer></script>
     <script src="JavaScripts/buttonScript.js" defer></script>
-    <link rel="stylesheet" href="Styles/Form.css" />
+    <script src="JavaScripts/DarkmodeButton.Js" defer></script>
+    <script src="JavaScripts/Password.js" defer></script>
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
+    <link rel="stylesheet" href="Styles/Form.css" />
   </head>
   <body>
+    <button id="darkModeToggle">🌞🌛</button>
     <div class="formBackground">
       <header>
         <h1 class="intro">FCAI Online Library</h1>
@@ -23,7 +27,7 @@
               <label for="username">Username</label>
             </div>
             <div class="formElement">
-              <input type="password" id="password" name="password" required />
+              <input type="password" id="password" name="password" required required minlength="8"/>
               <span></span>
               <label for="password">Password</label>
             </div>
@@ -43,14 +47,9 @@
               <label for="email">Email</label>
             </div>
             <div class="formElement">
-              <input type="date" id="dob" name="dob" required />
+              <input type="date" id="dob" name="dob" required required max="2026-12-31" />
               <span></span>
               <label for="dob">Date of Birth</label>
-            </div>
-            <div class="formElement">
-              <input type="tel" id="phone" name="phone" required />
-              <span></span>
-              <label for="phone">Phone Number</label>
             </div>
             <div>
               <label for="country_code">Select the country code:</label>
@@ -644,6 +643,11 @@
                   </option>
                 </optgroup>
               </select>
+            </div>
+            <div class="formElement">
+              <input type="tel" id="phone" name="phone" required required maxlength="15"/>
+              <span></span>
+              <label for="phone">Phone Number</label>
             </div>
             <br />
             <div>

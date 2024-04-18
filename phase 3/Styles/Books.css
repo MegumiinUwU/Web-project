@@ -1,5 +1,4 @@
 
-
 .Thetitle{
         color: #023f51;
         padding: 5px;
@@ -7,16 +6,24 @@
         
 }
 
-
+.borrowhead{
+    color: #023f51;
+    padding: 5px;
+    text-align: center;
+        
+}
 main {
     margin: -10px auto 150px;
     max-width: 800px;
     padding: 20px ;
     background-color: #FFFFFF;
+    border-style:solid;
+    border-color:#023f51;
     border-radius: 20px;
     box-shadow: 0 0 20px gray;
     width: auto;
 }
+
 
 article.Book {
     display: flex;
@@ -48,6 +55,12 @@ article.Book p {
     color: #00303F;
     line-height: 1.6;
 }
+
+.dark-mode {
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+
 
 @media(max-width:800px) {
     main {
@@ -110,3 +123,4 @@ article.Book p {
     background-color: #CAE4DB;
     color: #00303F;
 }
+
