@@ -21,46 +21,48 @@
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-/* Book cover image */
-.inventory-items img {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 5px;
-}
-
-/* Book details */
-.book-details {
-    flex: 1;
-}
-
-/* Book title */
-.book-details h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-/* Book author and genre */
-.book-details p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Remove button */
-.remove-button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.remove-button:hover {
-    background-color: #c82333;
-}
+    }
+    
+    /* Book cover image */
+    .inventory-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
+        gap: 20px; /* Adjust gap between items */
+    }
+    
+    /* Inventory item */
+    .inventory-item {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc; /* Add border for each item */
+        border-radius: 5px; /* Add border radius for a rounded look */
+    }
+    
+    /* Book cover image */
+    .inventory-items img {
+        width: 100%;
+        height: 300px;
+        border-top-left-radius: 5px; /* Adjust border radius for top-left corner */
+        border-top-right-radius: 5px; /* Adjust border radius for top-right corner */
+    }
+    
+    /* Book details */
+    .book-details {
+        padding: 10px; /* Add padding for book details */
+    }
+    
+    /* Return button */
+    .return-button {
+        margin-top: auto; /* Push button to the bottom */
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 0 0 5px 5px; /* Adjust border radius for bottom corners */
+        padding: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .return-button:hover {
+        background-color: #c82333;
+    }
