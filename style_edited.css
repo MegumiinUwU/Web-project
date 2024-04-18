@@ -1,0 +1,254 @@
+body {
+    background-color: #F5F4F4;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin-bottom: 100px;
+}
+
+.NavHome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #00303F;
+    
+}
+
+.NavHome ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.NavHome li{
+    list-style: none;
+    font-size: 18px;
+}
+
+.NavHome li:hover{
+    background-color: #023f51;
+}
+
+.NavHome li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.NavHome .title{
+    font-size: 1.5rem;
+    margin: 0.5rem;
+}
+
+.toggle-button{
+    position:absolute;
+    top: 0.75rem;
+    right: 1rem;
+    color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    display: none;
+}
+
+.toggle-button .bar{
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Container for book listings */
+.book-list  {
+    display: grid; /**/
+    grid-template-columns: repeat(auto-fit ,minmax(270px  , 1fr )); /**/
+    gap: 20px;
+    max-width: 90%; /**/
+    margin: 0 auto; /**/
+    justify-items: center;
+    align-items: center;
+ }
+ 
+ .book-elemant  {
+     margin: 20px;
+     border-radius: 15px;
+     padding-bottom: 10px ;
+     text-align: center;
+     box-shadow: 0 2px 4px #00303F;
+     display: flex;
+     flex-direction: column;
+     max-width: 300px;
+     width: calc(90%);
+     height: 450px;
+     background-color: #fff;
+     border: 1px solid  #ccc;
+     overflow: hidden;
+ }
+ 
+
+ 
+ 
+ .book-elemant img  {
+     margin-bottom: 10px  ;
+     width: 100%;
+     height: 350px;
+     object-fit: cover;
+     border-radius: 5px;
+     overflow: hidden;
+ }
+ 
+ .book-elemant a  {
+     color: #00303F;
+     text-decoration: none;
+     font-size: 18px;
+     font-weight: bold;
+     transition: color 0.3s ease;
+ }
+ 
+ .book-elemant a:hover {
+     color: #2a578a;
+ }
+
+
+
+/* Style for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Center modal vertically */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    max-width: 600px; /* Limit modal width */
+    color: #0e0909;
+}
+.modal h2{
+    color: #00303F;
+}
+/* Close button inside the modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s; /* Add transition effect */
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Change color on hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Hover effect for book listings */
+.book-list:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    transform: scale(1.02); /* Scale up on hover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition effects */
+}
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: #00303F;
+    padding: 20px 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+*{
+    box-sizing: border-box;
+}
+
+@media(max-width: 590px){
+    .toggle-button{
+        display: flex;
+    }
+
+    .navbar-links{
+        display: none;
+        width: 100%;
+    }
+
+    .NavHome{
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 0px 0px 8px 8px;
+        
+    }
+
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li{
+        text-align: center;
+    }
+
+    .navbar-links li a{
+        padding: 0.75rem 1rem;
+    }
+    
+    .navbar-links.active {
+        display: flex;
+    }
+
+}
+
+.dark-mode {
+    background-color: #1a1a1a; /* Dark background color */
+    color: #ffffff; /* Light text color */
+}
+
+.dark-mode .NavHome {
+    background-color: #000000; /* Dark background color for navigation */
+}
+
+.dark-mode .NavHome li:hover {
+    background-color: #666666; /* Darker hover color for navigation */
+}
+
+
+#darkModeToggle {
+    background-color: #ffffff; /* Button background color */
+    color: #000000; /* Button text color */
+    border: none;
+    padding: 5px; /* Adjust padding to make it smaller */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    margin: 10px; /* Adjust margin as needed */
+    font-size: 20px; /* Increase font size for emojis */
+    position: fixed; /* Fixed position */
+    top: 50px; /* Distance from top */
+    left: 20px; /* Distance from left */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+#darkModeToggle:hover {
+    background-color: #cccccc; /* Button background color on hover */
+}
