@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Books</title>
     <link rel="stylesheet" href="Styles/BookListing.css" />
     <script src="JavaScripts/buttonScript.js" defer></script>
-    <script src="JavaScripts/DarkmodeButton.Js" defer></script> 
+    <script src="JavaScripts/DarkmodeButton.Js" defer></script>
+    <script src="JavaScripts/WishlistScript.js" defer></script> 
+    <script src="JavaScripts/Inventory.js" defer></script>
     <script src="JavaScripts/DynamicDisplay.js" type="module"></script>
     <script type="module">
-        import { createBookDisplay } from './JavaScripts/DynamicDisplay.js';
-        document.addEventListener('DOMContentLoaded', createBookDisplay);
+        import { createBorrowBookDisplay } from './JavaScripts/DynamicDisplay.js';
+        document.addEventListener('DOMContentLoaded', createBorrowBookDisplay);
     </script>
   </head>
   <body>
@@ -32,11 +33,12 @@
           </ul>
         </div>
       </nav>
-
     </header>
-    <h1 class="book-heading">All Books</h1>
+    <h1 class="book-heading">Borrow Books</h1>
+
     <div class="books">
     </div>
+    
     <footer class="footer">
         <p>&copy; 2024 FCAI Online Library</p>
     </footer>

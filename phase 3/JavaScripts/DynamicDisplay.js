@@ -40,17 +40,49 @@ description: "Head First Object-Oriented Analysis and Design is a book that prov
 
 let images = ["Images/Book1.jpg","Images/book2.jpg","Images/book3.jpg","Images/book4.jpg","Images/book5.jpg"];
 
+function DisplayAllBooks(){
+    const titleElement = document.getElementById('title');
+    const authorElement = document.getElementById('author');
+    const genreElement = document.getElementById('genre');
+    const publicationDateElement = document.getElementById('publicationDate');
+    const ISBNElement = document.getElementById('ISBN');
+    const descriptionElement = document.getElementById('description');
+    const img = document.getElementsByClassName('Book Image')[0];
+    let index = 0;
+    if(localStorage.getItem('indexVal')){
+        index = localStorage.getItem('indexVal');
+    }
+    img.src = images[index]; 
+    let Book = books[index];
+
+    const borrowButton = document.getElementsByClassName('borrow-button');
+    borrowButton.id = "borrow-button-" + (index + 1);
+    console.log(borrowButton);  //
+
+    const wishlistButton = document.getElementsByClassName('wishlist-button');
+    wishlistButton.id = "wishlist-button-" + (index + 1);
+    console.log(wishlistButton); //
+
+    titleElement.textContent = Book.title;
+    authorElement.textContent = Book.author;
+    genreElement.textContent = Book.genre.join(', '); // Convert the genre array to a comma-separated string
+    publicationDateElement.textContent = Book.publicationDate;
+    ISBNElement.textContent = Book.ISBN;
+    descriptionElement.textContent = Book.description;
+};
+
 function createBookDisplay() {
     const bookContainer = document.querySelector('.books');
-    books.forEach((book, index) => { // Loop through books array with index
+    books.forEach((book, index) => { 
         const div = document.createElement('div');
         div.classList.add('book-display');
+        div.setAttribute('data-index', index);
 
         const linkImg = document.createElement('a');
-        linkImg.href = "book.html"; //
+        linkImg.href = "book.html";
         const img = document.createElement('img');
         img.src = images[index];
-        img.alt = 'book' + (index + 1); // Adjust index
+        img.alt = book.title + " Cover";
 
         const linkTitle = document.createElement('a');
         linkTitle.textContent = book.title;
@@ -61,6 +93,73 @@ function createBookDisplay() {
         div.appendChild(linkTitle);
         bookContainer.appendChild(div);
     });
-}
+};
 
-document.addEventListener('DOMContentLoaded', createBookDisplay);
+function createBorrowBookDisplay() {
+    const bookContainer = document.querySelector('.books');
+    books.forEach((book, index) => { // Loop through books array with index
+        const div = document.createElement('div');
+        div.classList.add('book');
+        div.setAttribute('data-index', index);
+
+        const linkImg = document.createElement('a');
+        linkImg.href = "book.html"; //
+        const img = document.createElement('img');
+        img.src = images[index];
+        img.alt = 'book' + (index + 1); // Adjust index
+
+        const linkTitle = document.createElement('a');
+        linkTitle.textContent = book.title;
+        linkTitle.href = "book.html"; //
+
+        const borrowButton = document.createElement('button');
+        borrowButton.classList.add('borrow-button');
+        borrowButton.textContent = 'Borrow now';
+        borrowButton.id = "borrow-button-" + (index + 1);
+
+        const wishlistButton = document.createElement('button');
+        wishlistButton.classList.add('wishlist-button');
+        wishlistButton.textContent = 'Add to wish list';
+        wishlistButton.id = "wishlist-button-" + (index + 1);
+        
+        linkImg.appendChild(img);
+        div.appendChild(linkImg);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(linkTitle);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(borrowButton);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(wishlistButton);
+        bookContainer.appendChild(div);
+    });
+};
+
+export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay};
+
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is an <a> tag
+    console.log("Entered event");
+    if (event.target.tagName === 'A') {
+        // Get the parent <div> element with class 'book-display'
+        const bookDisplayDiv = event.target.parentNode;
+        // Check if the parent <div> element exists and has the class 'book-display'
+        if (bookDisplayDiv && bookDisplayDiv.matches('.book-display, .book')) {
+            // Retrieve the value of the 'data-index' attribute
+            const dataIndex = bookDisplayDiv.getAttribute('data-index');
+            // Convert the dataIndex to an integer if needed
+            let index = parseInt(dataIndex);
+            localStorage.setItem('indexVal', index);
+            console.log('Index of clicked book:', index);
+        }
+    }else if(event.target.tagName === 'IMG'){
+        const bookDisplayDiv = event.target.parentNode.parentNode;
+        if (bookDisplayDiv && bookDisplayDiv.matches('.book-display, .book')) {
+            // Retrieve the value of the 'data-index' attribute
+            const dataIndex = bookDisplayDiv.getAttribute('data-index');
+            // Convert the dataIndex to an integer if needed
+            let index = parseInt(dataIndex);
+            localStorage.setItem('indexVal', index);
+            console.log('Index of clicked book:', index);
+        }
+    }
+});

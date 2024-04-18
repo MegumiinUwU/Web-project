@@ -49,15 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    /*function displayWishlist(){
-        const userType = getUserTypeFromStorage(); 
-        if(userType == 'admin' || userType == 'user'){
-            showWishlist.style.display = 'flex';
-        }else{
-            showWishlist.style.display = 'none';
-        }
-    }*/
-
     function updateNavigationBar() {
         const userType = getUserTypeFromStorage(); 
         console.log(userType);
