@@ -67,13 +67,6 @@ body {
   box-sizing: border-box;
 }
 
-/*.wishlist{
-  display: none;
-}
-
-.wishlist.active{
-  display: flex;
-}*/
 
 @media (max-width: 930px) {
   .toggle-button {

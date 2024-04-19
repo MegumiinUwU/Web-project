@@ -86,11 +86,28 @@ function createBookDisplay() {
 
         const linkTitle = document.createElement('a');
         linkTitle.textContent = book.title;
-        linkTitle.href = "book.html"; //
+        linkTitle.href = "book.html";
+        //
+        const div2 = document.createElement('div');
+        div2.classList.add('preview-available');
+        
+        const previewButton = document.createElement('button');
+        previewButton.classList.add('preview-button');
+        previewButton.textContent = 'Preview';
+
+        const availability = document.createElement('button');
+        availability.classList.add('availability');
+        availability.textContent = 'Available';
+        //
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
         div.appendChild(linkTitle);
+        div.appendChild(document.createElement('br'));
+        div2.appendChild(previewButton);
+        div2.appendChild(document.createElement('br'));
+        div2.appendChild(availability);
+        div.appendChild(div2);
         bookContainer.appendChild(div);
     });
 };
@@ -121,11 +138,28 @@ function createBorrowBookDisplay() {
         wishlistButton.classList.add('wishlist-button');
         wishlistButton.textContent = 'Add to wish list';
         wishlistButton.id = "wishlist-button-" + (index + 1);
+
+        const div2 = document.createElement('div');
+        div2.classList.add('preview-available');
+
+        const previewButton = document.createElement('button');
+        previewButton.classList.add('preview-button');
+        previewButton.textContent = 'Preview';
+
+        const availability = document.createElement('button');
+        availability.classList.add('availability');
+        availability.textContent = 'Available';
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
         div.appendChild(document.createElement('br'));
         div.appendChild(linkTitle);
+        div.appendChild(document.createElement('br'));
+        div2.appendChild(previewButton);
+        div2.appendChild(document.createElement('br'));
+        div2.appendChild(availability);
+        div.appendChild(div2);
+        div2.appendChild(document.createElement('br'));
         div.appendChild(document.createElement('br'));
         div.appendChild(borrowButton);
         div.appendChild(document.createElement('br'));
@@ -134,7 +168,6 @@ function createBorrowBookDisplay() {
     });
 };
 
-export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay};
 
 document.addEventListener('click', function(event) {
     // Check if the clicked element is an <a> tag
@@ -163,3 +196,5 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay};

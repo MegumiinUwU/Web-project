@@ -6,7 +6,8 @@
     <title>Book Details</title>
     <link rel="stylesheet" href="Styles/Books.css" />
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
-    <script src="JavaScripts/buttonScript.js" defer></script>
+    <!--<script src="JavaScripts/buttonScript.js" defer></script>-->
+    <script src ="JavaScripts/DynamicHome.js" defer></script>
     <script src="JavaScripts/DarkmodeButton.Js" defer></script>
     <script src="JavaScripts/WishlistScript.js" defer></script> 
     <script src="JavaScripts/Inventory.js" defer></script>
@@ -27,14 +28,6 @@
                 <span class="bar"></span>
             </a>
             <div class="navbar-links">
-                <ul>
-                    <li><a href="Profile.html">Profile</a></li>
-                    <li><a href="usersView.html">Home</a></li>
-                    <li><a href="search.html">Search</a></li>
-                    <li><a href="Borrowed Books.html">Borrow Books</a></li>
-                    <li><a href="wishlist.html">My Wishlist</a></li>
-                    <li><a href="defaultview.html">Logout</a></li>
-                </ul>
             </div>
         </nav>
     </header>
@@ -54,7 +47,8 @@
                 <p>Publication Date: <span id="publicationDate"></span></p>
                 <p>ISBN: <span id="ISBN"></span></p>
                 <p>Description: <span id="description"></span></p>
-                <div class="buttons"><button class="borrow-button">Borrow now</button><br><button class="wishlist-button">Add to wish list</button></div>
+                <div class="buttons"><button class="borrow-button">Borrow Now</button><br><button class="wishlist-button">Add to Wishlist</button></div>
+                <div class="AdminButtons"><button class="edit-button">Edit Book</button><br><button class="remove-button">Remove Book</button></div>
             </div>
         </article>
     </main>
