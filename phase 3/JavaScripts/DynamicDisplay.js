@@ -40,6 +40,16 @@ description: "Head First Object-Oriented Analysis and Design is a book that prov
 
 let images = ["Images/Book1.jpg","Images/book2.jpg","Images/book3.jpg","Images/book4.jpg","Images/book5.jpg"];
 
+//Nadra's fn
+function closingModal(){
+    // Adding of event listener to close button inside the modal
+    document.getElementById('closeModalBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Hideing of modal
+        document.getElementById('myModal').style.display = 'none';
+    });
+};
+
 function DisplayAllBooks(){
     const titleElement = document.getElementById('title');
     const authorElement = document.getElementById('author');
@@ -49,6 +59,7 @@ function DisplayAllBooks(){
     const descriptionElement = document.getElementById('description');
     const img = document.getElementsByClassName('Book Image')[0];
     let index = 0;
+    console.log(localStorage.getItem('indexVal'));
     if(localStorage.getItem('indexVal')){
         index = localStorage.getItem('indexVal');
     }
@@ -122,6 +133,7 @@ function createBookDisplay() {
         div2.appendChild(availability);
         div.appendChild(div2);
         bookContainer.appendChild(div);
+        closingModal();
     });
 };
 
@@ -193,6 +205,7 @@ function createBorrowBookDisplay() {
         div.appendChild(document.createElement('br'));
         div.appendChild(wishlistButton);
         bookContainer.appendChild(div);
+        closingModal();
     });
 };
 
@@ -225,13 +238,5 @@ document.addEventListener('click', function(event) {
     }
 });
 
-//Nadra's fn
 
-// Adding of event listener to close button inside the modal
-document.getElementById('closeModalBtn').addEventListener('click', function(event) {
-    event.preventDefault();
-    // Hideing of modal
-    document.getElementById('myModal').style.display = 'none';
-});
-
-export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay};
+export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay, closingModal};
