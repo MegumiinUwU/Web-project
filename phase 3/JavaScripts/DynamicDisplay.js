@@ -87,7 +87,7 @@ function createBookDisplay() {
         const linkTitle = document.createElement('a');
         linkTitle.textContent = book.title;
         linkTitle.href = "book.html";
-        //
+        //Availability & Preview
         const div2 = document.createElement('div');
         div2.classList.add('preview-available');
         
@@ -98,6 +98,19 @@ function createBookDisplay() {
         const availability = document.createElement('button');
         availability.classList.add('availability');
         availability.textContent = 'Available';
+        //Nadra's Part
+        previewButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Populate modal with book details
+            document.getElementById('modal-title').textContent = book.title;
+            document.getElementById('modal-title').style.textAlign = 'center';
+            document.getElementById('modal-author').innerHTML = '<strong>Author: </strong> ' + book.author;
+            document.getElementById('modal-publicationDate').innerHTML =  '<strong>Publication Date: </strong> '  + book.publicationDate;
+            document.getElementById('modal-description').innerHTML =   '<strong>Description: </strong> ' + book.description;
+    
+            // Displaying of modal
+            document.getElementById('myModal').style.display = 'block';
+        });
         //
         
         linkImg.appendChild(img);
@@ -149,6 +162,21 @@ function createBorrowBookDisplay() {
         const availability = document.createElement('button');
         availability.classList.add('availability');
         availability.textContent = 'Available';
+
+        //Nadra's Part
+        previewButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Populate modal with book details
+            document.getElementById('modal-title').textContent = book.title;
+            document.getElementById('modal-title').style.textAlign = 'center';
+            document.getElementById('modal-author').innerHTML = '<strong>Author: </strong> ' + book.author;
+            document.getElementById('modal-publicationDate').innerHTML =  '<strong>Publication Date: </strong> '  + book.publicationDate;
+            document.getElementById('modal-description').innerHTML =   '<strong>Description: </strong> ' + book.description;
+    
+            // Displaying of modal
+            document.getElementById('myModal').style.display = 'block';
+        });
+        //
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
@@ -195,6 +223,15 @@ document.addEventListener('click', function(event) {
             console.log('Index of clicked book:', index);
         }
     }
+});
+
+//Nadra's fn
+
+// Adding of event listener to close button inside the modal
+document.getElementById('closeModalBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Hideing of modal
+    document.getElementById('myModal').style.display = 'none';
 });
 
 export {DisplayAllBooks, createBookDisplay, createBorrowBookDisplay};

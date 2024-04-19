@@ -279,3 +279,51 @@ body {
 #darkModeToggle:hover {
     background-color: #cccccc; /* Button background color on hover */
 }
+
+/* Style for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Center modal vertically */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    max-width: 600px; /* Limit modal width */
+    color: #0e0909;
+}
+.modal h2{
+    color: #00303F;
+}
+/* Close button inside the modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s; /* Add transition effect */
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Change color on hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.books:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+    transform: scale(1.02); /* Scale up on hover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition effects */
+}
