@@ -4,14 +4,16 @@ let books = [
     genre: ["Shonen", "Adventure", "Fantasy"],
     publicationDate: "Serialized since July 22, 1997",
     ISBN: "22",
-    description: "One Piece follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary treasure known as One Piece in order to become the Pirate King. Set in a world of vast oceans and islands, the series is known for its imaginative characters, epic battles, and rich world-building."
+    description: "One Piece follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary treasure known as One Piece in order to become the Pirate King. Set in a world of vast oceans and islands, the series is known for its imaginative characters, epic battles, and rich world-building.",
+    url: "book1.html"
 },
 {title: "Head First Objects-Oriented Analysis and Design",
 author: "Brett D. McLaughlin, Gary Pollice, and David West",
 genre: ["Educational", "Computer Science", "Object-Oriented Programming"],
 publicationDate: "First published in December 2006",
 ISBN: "978-0596008673",
-description: "Head First Object-Oriented Analysis and Design is a book that provides a unique and engaging approach to learning the principles of object-oriented analysis and design (OOAD). Written by Brett D. McLaughlin, Gary Pollice, and David West, the book uses a visually rich format with illustrations, diagrams, and humor to teach readers how to apply object-oriented concepts effectively in software design and development. It covers essential topics such as modeling, requirements gathering, use case analysis, class design, and design patterns, making it a valuable resource for software engineers, developers, and students looking to master OOAD principles."
+description: "Head First Object-Oriented Analysis and Design is a book that provides a unique and engaging approach to learning the principles of object-oriented analysis and design (OOAD). Written by Brett D. McLaughlin, Gary Pollice, and David West, the book uses a visually rich format with illustrations, diagrams, and humor to teach readers how to apply object-oriented concepts effectively in software design and development. It covers essential topics such as modeling, requirements gathering, use case analysis, class design, and design patterns, making it a valuable resource for software engineers, developers, and students looking to master OOAD principles.",
+url: "book2.html"
 },
 {
     title: "Fullmetal Alchemist",
@@ -19,7 +21,8 @@ description: "Head First Object-Oriented Analysis and Design is a book that prov
     genre: ["Shonen", "Fantasy", "Adventure"],
     publicationDate: "Serialized from August 2001 to June 2010",
     ISBN: "978-0888808673",
-    description: "Fullmetal Alchemist is a Japanese manga series written and illustrated by Hiromu Arakawa. It was serialized in Square Enix's Monthly Shōnen Gangan magazine between August 2001 and June 2010, with the publisher later collecting the individual chapters into twenty-seven tankōbon volumes. The world of Fullmetal Alchemist is styled after the European Industrial Revolution. Set in a fictional universe in which alchemy is one of the most advanced scientific techniques, the story follows two alchemist brothers named Edward and Alphonse Elric, who are searching for the philosopher's stone to restore their bodies after a failed attempt to bring their mother back to life using alchemy."
+    description: "Fullmetal Alchemist is a Japanese manga series written and illustrated by Hiromu Arakawa. It was serialized in Square Enix's Monthly Shōnen Gangan magazine between August 2001 and June 2010, with the publisher later collecting the individual chapters into twenty-seven tankōbon volumes. The world of Fullmetal Alchemist is styled after the European Industrial Revolution. Set in a fictional universe in which alchemy is one of the most advanced scientific techniques, the story follows two alchemist brothers named Edward and Alphonse Elric, who are searching for the philosopher's stone to restore their bodies after a failed attempt to bring their mother back to life using alchemy.",
+    url: "book3.html"
 },
 {
     title: "Stewart Calculus",
@@ -27,7 +30,8 @@ description: "Head First Object-Oriented Analysis and Design is a book that prov
     genre: ["Educational", "Mathematics", "Calculus"],
     publicationDate: "First published in 1985 (Different editions and versions have been published over the years)",
     ISBN: "978-1305266643",
-    description: "Stewart Calculus is a widely used textbook for calculus courses at the university level. Authored by James Stewart, the book covers various topics in calculus including limits, derivatives, integrals, applications of integration, infinite series, vectors, and multivariable calculus. Known for its clear explanations, numerous examples, and exercises ranging from basic to challenging, Stewart Calculus is a comprehensive resource for students studying calculus. It has been praised for its pedagogical approach, making calculus more accessible to learners."
+    description: "Stewart Calculus is a widely used textbook for calculus courses at the university level. Authored by James Stewart, the book covers various topics in calculus including limits, derivatives, integrals, applications of integration, infinite series, vectors, and multivariable calculus. Known for its clear explanations, numerous examples, and exercises ranging from basic to challenging, Stewart Calculus is a comprehensive resource for students studying calculus. It has been praised for its pedagogical approach, making calculus more accessible to learners.",
+    url: "book4.html"
 },
 {
     title: "Dune",
@@ -35,7 +39,8 @@ description: "Head First Object-Oriented Analysis and Design is a book that prov
     genre: ["Science Fiction", "Epic", "Adventure"],
     publicationDate: "Originally published in 1965",
     ISBN: "978-130557899",
-    description: "Dune is a science fiction novel set in a distant future where noble houses vie for control over the desert planet of Arrakis, the only source of the valuable spice melange. The story follows young Paul Atreides as he becomes embroiled in political intrigue, prophecy, and rebellion against the ruling powers. Dune is known for its intricate world-building, complex characters, and exploration of themes such as politics, religion, and ecology."
+    description: "Dune is a science fiction novel set in a distant future where noble houses vie for control over the desert planet of Arrakis, the only source of the valuable spice melange. The story follows young Paul Atreides as he becomes embroiled in political intrigue, prophecy, and rebellion against the ruling powers. Dune is known for its intricate world-building, complex characters, and exploration of themes such as politics, religion, and ecology.",
+    url: "book5.html"
 }];
 
 let images = ["Images/Book1.jpg","Images/book2.jpg","Images/book3.jpg","Images/book4.jpg","Images/book5.jpg"];
@@ -106,9 +111,9 @@ function createBookDisplay() {
         previewButton.classList.add('preview-button');
         previewButton.textContent = 'Preview';
 
-        const availability = document.createElement('button');
-        availability.classList.add('availability');
-        availability.textContent = 'Available';
+        // const availability = document.createElement('button');
+        // availability.classList.add('availability');
+        // availability.textContent = 'Available';
         //Nadra's Part
         previewButton.addEventListener('click', function(event) {
             event.preventDefault();
@@ -130,7 +135,7 @@ function createBookDisplay() {
         div.appendChild(document.createElement('br'));
         div2.appendChild(previewButton);
         div2.appendChild(document.createElement('br'));
-        div2.appendChild(availability);
+        // div2.appendChild(availability);
         div.appendChild(div2);
         bookContainer.appendChild(div);
         closingModal();
@@ -156,8 +161,8 @@ function createBorrowBookDisplay() {
 
         const borrowButton = document.createElement('button');
         borrowButton.classList.add('borrow-button');
-        borrowButton.textContent = 'Borrow now';
         borrowButton.id = "borrow-button-" + (index + 1);
+        updateBorrowButtonState(borrowButton, index, book.url); // Update borrow button state based on local storage
 
         const wishlistButton = document.createElement('button');
         wishlistButton.classList.add('wishlist-button');
@@ -170,12 +175,6 @@ function createBorrowBookDisplay() {
         const previewButton = document.createElement('button');
         previewButton.classList.add('preview-button');
         previewButton.textContent = 'Preview';
-
-        const availability = document.createElement('button');
-        availability.classList.add('availability');
-        availability.textContent = 'Available';
-
-        //Nadra's Part
         previewButton.addEventListener('click', function(event) {
             event.preventDefault();
             // Populate modal with book details
@@ -188,7 +187,43 @@ function createBorrowBookDisplay() {
             // Displaying of modal
             document.getElementById('myModal').style.display = 'block';
         });
-        //
+
+        // const availability = document.createElement('button');
+        // availability.classList.add('availability');
+        // availability.textContent = 'Available';
+
+        // Add event listener to borrow button for borrowing or returning
+        borrowButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Check if book is already borrowed
+            const isBorrowed = localStorage.getItem(`borrowed-${book.url}`) === 'true';
+            console.log(`Book URL: ${book.url}, isBorrowed: ${isBorrowed}`);
+            if (!isBorrowed) {
+                // Book is not borrowed, update localStorage and button state
+                localStorage.setItem(`borrowed-${book.url}`, true);
+                updateBorrowButtonState(borrowButton, index, book.url);
+            } else {
+                // Book is borrowed, return it
+                localStorage.removeItem(`borrowed-${book.url}`);
+                updateBorrowButtonState(borrowButton, index, book.url);
+            }
+        });
+
+        // Function to update borrow button state
+        function updateBorrowButtonState(button, bookIndex, bookUrl) {
+            const isBorrowed = localStorage.getItem(`borrowed-${bookUrl}`) === 'true';
+            console.log(`Book URL: ${bookUrl}, isBorrowed: ${isBorrowed}`);
+            if (isBorrowed) {
+                button.textContent = 'Unavailable';
+                button.style.backgroundColor = 'red';
+                button.disabled = true;
+            } else {
+                button.textContent = 'Borrow now';
+                button.style.backgroundColor = ''; // Reset background color
+                button.disabled = false;
+            }
+        }
+        
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
@@ -197,7 +232,7 @@ function createBorrowBookDisplay() {
         div.appendChild(document.createElement('br'));
         div2.appendChild(previewButton);
         div2.appendChild(document.createElement('br'));
-        div2.appendChild(availability);
+        // div2.appendChild(availability);
         div.appendChild(div2);
         div2.appendChild(document.createElement('br'));
         div.appendChild(document.createElement('br'));
@@ -207,9 +242,15 @@ function createBorrowBookDisplay() {
         bookContainer.appendChild(div);
         closingModal();
     });
-};
+}
 
 
+
+
+
+
+
+//WE NEED TO EDIT AND REMOVE HERE
 document.addEventListener('click', function(event) {
     // Check if the clicked element is an <a> tag
     console.log("Entered event");

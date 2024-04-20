@@ -8,6 +8,7 @@ const books = [
 ];
 
 // Function to add a book to the wishlist
+// Function to add a book to the wishlist
 function addToWishlist(bookId) {
     // Get the book URL based on the book ID
     const book = books[bookId - 1];
@@ -16,15 +17,25 @@ function addToWishlist(bookId) {
     // Get the current list of books from localStorage or initialize an empty array
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
-    // Add the new book URL to the wishlist
-    wishlist.push(bookUrl);
+    // Check if the book URL already exists in the wishlist
+    if (!wishlist.includes(bookUrl)) {
+        // Add the new book URL to the wishlist
+        wishlist.push(bookUrl);
 
-    // Save the updated wishlist back to localStorage
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        // Save the updated wishlist back to localStorage
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    // Generate the wishlist display
-    generateWishlist();
+        // Generate the wishlist display
+        generateWishlist();
+
+        // Debugging: Log the book URL and updated wishlist
+        console.log("Added to wishlist:", book.title);
+        console.log("Updated wishlist:", wishlist);
+    } else {
+        console.log("Book is already in the wishlist.");
+    }
 }
+
 
 // Function to remove a book from the wishlist
 function removeFromWishlist(bookUrl) {

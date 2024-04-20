@@ -177,4 +177,56 @@ h1 {
   color: #ffffff;
 }
 
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Position it fixed to the viewport */
+  z-index: 1000; /* Set a high z-index to ensure it appears on top of other content */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
 
+/* Modal content */
+.modal-content {
+  background-color: #fefefe; /* White background */
+  margin: 20% auto; /* Center modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%; /* Set width */
+  max-width: 600px; /* Set maximum width */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+/* Close button */
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.dark-mode .modal-content {
+  background-color: #1a1a1a; /* Dark background color */
+  border-color: #333; /* Darker border color */
+  color: #ffffff; /* Light text color */
+}
+
+.dark-mode .close-modal {
+  color: #ccc; /* Light color for close button in dark mode */
+}
+
+.dark-mode .close-modal:hover,
+.dark-mode .close-modal:focus {
+  color: #fff; /* White color on hover/focus for close button in dark mode */
+}

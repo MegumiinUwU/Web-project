@@ -16,21 +16,31 @@ function addToBorrowed(bookId) {
     // Get the current list of borrowed books from localStorage or initialize an empty array
     let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
 
-    // Add the new book URL to the borrowed list
-    borrowed.push(bookUrl);
+    // Check if the book URL already exists in the borrowed list
+    if (!borrowed.includes(bookUrl)) {
+        // Add the new book URL to the borrowed list
+        borrowed.push(bookUrl);
 
-    // Save the updated borrowed list back to localStorage
-    localStorage.setItem('borrowed', JSON.stringify(borrowed));
+        // Save the updated borrowed list back to localStorage
+        localStorage.setItem('borrowed', JSON.stringify(borrowed));
 
-    // Generate the borrowed list display
-    generateBorrowed();
+        // Update the availability of the book to 'Unavailable' in localStorage
+        localStorage.setItem(`borrowed-${bookUrl}`, true);
 
-    // Debugging: Log the book URL and updated borrowed list
-    console.log("Added to borrowed:", book.title);
-    console.log("Updated borrowed list:", borrowed);
+        // Generate the borrowed list display
+        generateBorrowed();
+
+        // Debugging: Log the book URL and updated borrowed list
+        console.log("Added to borrowed:", book.title);
+        console.log("Updated borrowed list:", borrowed);
+        
+        // Log the availability of the book in localStorage
+        console.log(`Availability of ${book.title}:`, localStorage.getItem(`borrowed-${bookUrl}`));
+    } else {
+        console.log("Book is already in the borrowed list.");
+    }
 }
 
-// Function to remove a book from the borrowed list
 function removeFromBorrowed(bookUrl) {
     // Get the current list of borrowed books from localStorage
     let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
@@ -39,21 +49,33 @@ function removeFromBorrowed(bookUrl) {
     console.log("Removing from borrowed:", bookUrl);
     console.log("Current borrowed list:", borrowed);
 
-    // Find the index of the book URL to remove
-    const index = borrowed.findIndex(url => url === bookUrl);
+    // Check if the book URL exists in the borrowed list
+    const index = borrowed.indexOf(bookUrl);
+    console.log("Index found:", index);
 
     // If the book URL is found in the borrowed list, remove it
     if (index !== -1) {
         borrowed.splice(index, 1);
         // Update the borrowed list in localStorage
         localStorage.setItem('borrowed', JSON.stringify(borrowed));
+
+        // Update the availability of the book to 'Available' in localStorage
+        localStorage.setItem(`borrowed-${bookUrl}`, false); // Set availability to false
+
         // Regenerate the borrowed list display
         generateBorrowed();
+        
+        // Log the updated borrowed list after removal
+        console.log("Updated borrowed list after removal:", borrowed);
+        
+        // Log the availability of the book in localStorage
+        console.log(`Availability of ${bookUrl}:`, localStorage.getItem(`borrowed-${bookUrl}`));
     }
-
-    // Debugging: Log the updated borrowed list after removal
-    console.log("Updated borrowed list after removal:", borrowed);
 }
+
+
+
+
 
 // Function to generate the borrowed list on the inventory page
 function generateBorrowed() {
