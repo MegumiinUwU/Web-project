@@ -9,6 +9,7 @@
     <script src="JavaScripts/DarkmodeButton.Js" defer></script>
     <link rel="stylesheet" href="Styles/ProfileStyles.css" />
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
+    <script src="JavaScripts/upload_profile_image.js" defer></script>
     <!--<script src="JavaScripts/buttonScript.js" defer></script>-->
   </head>
   <body>
@@ -37,8 +38,12 @@
       <form>
         <div class="avatar-container">
           <label for="profilePicture">Profile Picture:</label>
-          <input type="file" id="profilePicture" name="profilePicture" />
-          <img src="Images/PfP.jpg" alt="Avatar" class="avatar" />
+          <!-- Hide the file input -->
+          <input type="file" id="profilePicture" name="profilePicture" style="display: none;" />
+          <!-- Add an image placeholder -->
+          <label for="profilePicture" class="avatar-label">
+            <img src="Images/PfP.jpg" alt="Avatar" class="avatar" />
+          </label>
         </div>
 
         <div class="field">

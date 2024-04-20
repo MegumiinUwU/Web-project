@@ -127,7 +127,7 @@ body {
 }
 
 .borrow-button,
-.wishlist-button, .remove-button , .preview-button, .availability {
+.wishlist-button, .remove-button , .preview-button {
     padding: 8px 20px;
     margin: 5px ;
     border: none;
@@ -166,7 +166,7 @@ body {
     color: #00303F;
 }
 
-.wishlist-button, .remove-button {      /*Who added this remove button?*/
+.wishlist-button, .remove-button {      
     background-color: #CDAC81;
     color: #00303F;
     border: 2px solid #CDAC81;
@@ -177,10 +177,7 @@ body {
     color: #00303F;
 }
 
-.preview-available{
-    display: flex;
-    padding: 0 10px;
-}
+
 
 .preview-button {
     width: 50%;
@@ -194,22 +191,11 @@ body {
     color: #803D3B;
 }
 
-.availability{
-    opacity: 60%;
-    width: 45%;
-    text-align: center;
-    background-color: #FFEC9E;
-    color: black;
-    border: 2px solid #FFEC9E;
-}
 
-.availability.active {
-    opacity: 100%;
-}
 
-*{
+/* *{
     box-sizing: border-box;
-}
+} */
 
 @media(max-width: 650px){
     .toggle-button{

@@ -20,6 +20,7 @@ function searchBooks(query) {
 }
 
 // Function to display search results
+// Function to display search results
 function displayResults(results) {
     var resultsContainer = document.getElementById("searchResults");
     resultsContainer.innerHTML = ""; 
@@ -45,8 +46,13 @@ function displayResults(results) {
 
             // Create link element for book title
             var link = document.createElement("a");
-            link.href = book.url; // Set the URL of the book page
+            link.href = "#"; // Set a dummy href
             link.textContent = book.title;
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                // Call function to display book details modal
+                displayBookDetails(book);
+            });
             details.appendChild(link);
 
             // Add author information
@@ -63,6 +69,33 @@ function displayResults(results) {
     }
 }
 
+// Function to display book details modal
+function displayBookDetails(book) {
+    // Get modal element
+    var modal = document.getElementById("bookDetailsModal");
+
+    // Populate modal with book details
+    var modalTitle = modal.querySelector(".modal-title");
+    modalTitle.textContent = book.title;
+
+    var modalAuthor = modal.querySelector(".modal-author");
+    modalAuthor.textContent = "By " + book.author;
+
+    var modalGenre = modal.querySelector(".modal-genre");
+    modalGenre.textContent = "Genre: " + book.genre;
+
+    // Display modal
+    modal.style.display = "block";
+}
+
+// Event listener for closing the modal
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("close-modal")) {
+        var modal = event.target.closest(".modal");
+        modal.style.display = "none";
+    }
+});
+
 // Event listener for the search form submission
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("searchForm").addEventListener("submit", function(event) {
@@ -75,5 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
         displayResults(results);
     });
 });
+
 
 
