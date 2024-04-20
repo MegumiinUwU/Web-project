@@ -1,9 +1,10 @@
 body {
   overflow-y: scroll;
   padding: 0;
+  padding-bottom: 100px;
 }
 main {
-  max-width: 800px;
+  max-width: 75%;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -12,17 +13,16 @@ main {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
 .form-group {
   margin-bottom: 20px;
   display: flex;
-  flex-wrap: nowrap;
   gap: 30px;
+  align-items: center;
   width: 100%;
-  /* /border: red solid;/ */
 }
 
 label {
@@ -31,12 +31,11 @@ label {
   margin-bottom: 5px;
   font-size: 16px;
   width: 100px;
-  /* /border: solid rebeccapurple;/ */
 }
 
 input[type="text"],
 input[type="number"],
-textarea {
+textarea, #genre{
   width: calc(100% - 120px);
   padding: 10px;
   border: 1px solid #ccc;
@@ -68,12 +67,16 @@ input[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: bold;
+  border: 2px solid #00303F;
 }
 
 input[type="reset"]:hover,
 input[type="submit"]:hover {
   background-color: #023f51;
-} /**/
+  background-color: #CAE4DB;
+  color: #00303F;
+}
 
 .heading {
   text-align: center;
@@ -85,11 +88,20 @@ p {
 
 .small-input {
   display: flex;
-  flex-wrap: nowrap;
-  flex: 1 1 calc(20% - 120px);
-  max-width: 600px;
-  gap: 10%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
 }
+.small-input .form-group{
+  flex-basis: calc(50% - 20px);
+}
+
+@media(max-width: 775px){
+  .small-input .form-group{
+    flex-basis: 100%;
+  }
+}
+
 .dark-mode {
   background-color: #1a1a1a; /* Dark background color */
   color: #ffffff; /* Light text color */
@@ -107,3 +119,4 @@ p {
 .dark-mode .NavHome li:hover {
   background-color: #666666; /* Darker hover color for navigation */
 }
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="Styles/Books.css" />
+    <link rel="stylesheet" href="Styles/HomeStyles.css" />
+    <!--<script src="JavaScripts/buttonScript.js" defer></script>-->
+    <script src ="JavaScripts/DynamicHome.js" defer></script>
+    <script src="JavaScripts/DarkmodeButton.Js" defer></script>
+    <script src="JavaScripts/WishlistScript.js" defer></script> 
+    <script src="JavaScripts/Inventory.js" defer></script>
+    <script src="JavaScripts/DynamicDisplay.js" type="module"></script>
+    <script type="module">
+        import { DisplayAllBooks } from './JavaScripts/DynamicDisplay.js';
+        document.addEventListener('DOMContentLoaded', DisplayAllBooks);
+    </script>
+  </head>
+  <body>
+    <button id="darkModeToggle">🌞🌛</button>
+    <header>
+        <nav class="NavHome">
+            <div class="title">FCAI Library</div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+            </div>
+        </nav>
+    </header>
+    <header>
+        <h1 class="borrowhead">Book Details</h1>
+    </header>
+
+    <main>
+        <article class="Book Details">
+            <div>
+                <img src="Images/Book1.jpg" alt="Book Cover" class="Book Image">
+            </div>
+            <div class="Books Description">
+                <h2>Title: <span id="title"></span></h2>
+                <p>Author: <span id="author"></span> </p>
+                <p>Genre: <span id="genre"></span> </p>
+                <p>Publication Date: <span id="publicationDate"></span></p>
+                <p>ISBN: <span id="ISBN"></span></p>
+                <p>Description: <span id="description"></span></p>
+                <div class="buttons"><button class="borrow-button">Borrow Now</button><br><button class="wishlist-button">Add to Wishlist</button></div>
+                <div class="AdminButtons"><button class="edit-button">Edit Book</button><br><button class="remove-button">Remove Book</button></div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 FCAI Online Library</p>
+    </footer>
+</body>
+</html>
+

@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Book Form</title>
-    <script src="JavaScripts/buttonScript.js" defer></script>
+    <!--<script src="JavaScripts/buttonScript.js" defer></script>-->
+    <script src ="JavaScripts/DynamicHome.js" defer></script>
     <script src="JavaScripts/DarkmodeButton.Js" defer></script>
     <link rel="stylesheet" href="Styles/HomeStyles.css" />
     <link rel="stylesheet" href="Styles/Addbook.css" />
+    <!--<script src="JavaScripts/buttonScript.js" defer></script>-->
   </head>
   <body>
     <button id="darkModeToggle">🌞🌛</button>
@@ -24,7 +26,8 @@
             <li><a href="Profile.html">Profile</a></li>
             <li><a href="usersView.html">Home</a></li>
             <li><a href="search.html">Search</a></li>
-            <li><a href="Borrowed Books.html">Borrow books</a></li>
+            <li><a href="Borrowed Books.html">Borrow Books</a></li>
+            <li><a href="wishlist.html">My Wishlist</a></li>
             <li><a href="defaultview.html">Logout</a></li>
           </ul>
         </div>
@@ -93,38 +96,38 @@
                 min="1800"
               />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="genre"> Genre: </label>
-            <select id="genre" name="genre" required>
-              <option value="" disabled selected>Select Genre</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="Mystery">Mystery</option>
-              <option value="Romance">Romance</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Horror">Horror</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Historical Fiction">Historical Fiction</option>
-              <option value="Biography">Biography</option>
-              <option value="Self-Help">Self-Help</option>
-              <option value="Cookbook">Cookbook</option>
-              <!-- Academic options -->
-              <option value="Science">Science</option>
-              <option value="Mathematics">Mathematics</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Biology">Biology</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Engineering">Engineering</option>
-              <option value="Medicine">Medicine</option>
-              <option value="Psychology">Psychology</option>
-              <option value="Sociology">Sociology</option>
-              <option value="Philosophy">Philosophy</option>
-              <option value="Economics">Economics</option>
-              <option value="Political Science">Political Science</option>
-            </select>
+            
+            <div class="form-group">
+              <label for="genre"> Genre: </label>
+              <select id="genre" name="genre" required>
+                <option value="" disabled selected>Select Genre</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Horror">Horror</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Historical Fiction">Historical Fiction</option>
+                <option value="Biography">Biography</option>
+                <option value="Self-Help">Self-Help</option>
+                <option value="Cookbook">Cookbook</option>
+                <!-- Academic options -->
+                <option value="Science">Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Sociology">Sociology</option>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Economics">Economics</option>
+                <option value="Political Science">Political Science</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">

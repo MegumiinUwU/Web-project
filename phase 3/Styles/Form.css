@@ -1,6 +1,7 @@
-/* .Login {
-  margin-bottom: 500px;
-} */
+.Login {
+  margin-bottom: auto;
+}
+
 
 .formBackground {
   height: auto;
@@ -71,12 +72,12 @@ form {
   transition: 0.5s;
 }
 .formElement input:focus ~ label,
-.formElement input:valid ~ label {
+.formElement input:valid ~ label, .formElement input[type="date"]:not(:placeholder-shown) ~ label {
   top: -5px;
   color: #cdac81;
 }
 .formElement input:focus ~ span::before,
-.formElement input:valid ~ span::before {
+.formElement input:valid ~ span::before, .formElement input[type="date"]:not(:placeholder-shown) ~ label {
   width: 100%;
 }
 button {

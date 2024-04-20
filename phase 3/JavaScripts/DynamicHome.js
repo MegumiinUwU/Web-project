@@ -28,7 +28,7 @@ function clearUserType() {
 
 function logout() {
     clearUserType();
-    window.location.href = "defaultview.html";
+    window.location.href = "HomePage.html";     //
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -40,24 +40,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const showButtons = document.getElementsByClassName("buttons")[0];
-    const showWishlist = document.querySelector('.wishlist');
+    const showAdminButtons = document.getElementsByClassName("AdminButtons")[0];
 
     function updateButtonVisibility(){
         const userType = getUserTypeFromStorage(); 
-        if(userType == 'admin' || userType == 'user'){
+        if(userType == 'user'){     // Borrow & Wishlist buttons only visible for users
             showButtons.classList.toggle('active');
+        }
+        if(userType == 'admin'){    // // Edit & Remove buttons only visible for admins
+            showAdminButtons.classList.toggle('active');
         }
     }
 
     function updateNavigationBar() {
         const userType = getUserTypeFromStorage(); 
         console.log(userType);
-        if (userType === 'admin') {
+        if (userType === 'admin') {     //Updated page links
             navbarLinks.innerHTML = `
                 <ul>
                     <li><a href="Profile.html?userType=admin">Profile</a></li>
-                    <li><a href="adminsview.html?userType=admin">Home</a></li>
+                    <li><a href="HomePage.html?userType=admin">Home</a></li>
                     <li><a href="search.html?userType=admin">Search</a></li>
+                    <li><a href="BookList.html?userType=admin">View Books</a></li>
                     <li><a href="addBook.html?userType=admin">Add Book</a></li>
                     <li><a href="#" onclick="logout()">Logout</a></li> <!-- Add onclick event for logout -->
                 </ul>
@@ -66,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
             navbarLinks.innerHTML = `
                 <ul>
                     <li><a href="Profile.html?userType=user">Profile</a></li>
+                    <li><a href="HomePage.html?userType=user">Home</a></li>
                     <li><a href="Inventory.html?userType=user">Inventory</a></li>
-                    <li><a href="usersView.html?userType=user">Home</a></li>
                     <li><a href="wishlist.html?userType=user">Wishlist</a></li>
                     <li><a href="search.html?userType=user">Search</a></li>
-                    <li><a href="Borrowed Books.html?userType=user">Borrow Books</a></li>
+                    <li><a href="BorrowBooks.html?userType=user">Borrow Books</a></li>
                     <li><a href="#" onclick="logout()">Logout</a></li> <!-- Add onclick event for logout -->
                 </ul>
             `;
@@ -78,9 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             navbarLinks.innerHTML = `
                 <ul>
-                    <li><a href="defaultview.html">Home</a></li>
+                    <li><a href="HomePage.html">Home</a></li>
                     <li><a href="search.html">Search</a></li>
-                    <li><a href="Book Listing.html">View Books</a></li>
+                    <li><a href="BookList.html">View Books</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="signup.html">Sign Up</a></li>
                 </ul>
@@ -91,6 +95,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateNavigationBar();
     updateButtonVisibility();
-    /*displayWishlist();*/
 });
 
