@@ -1,61 +1,3 @@
-// Array of books
-const books = [
-    { title: "One Piece", author: "Eiichiro Oda", genre: "Manga", url: "book1.html", image: "Images/book1.jpg" },
-    { title: "Head First Objects-Oriented Analysis and Design", author: "Brett D. McLaughlin", genre: "Programming", url: "book2.html", image: "Images/book2.jpg" },
-    { title: "Fullmetal Alchemist", author: "Hiromu Arakawa", genre: "Manga", url: "book3.html", image: "Images/book3.jpg" },
-    { title: "Stewart Calculus", author: "James Stewart", genre: "Mathematics", url: "book4.html", image: "Images/book4.jpg" },
-    { title: "Dune", author: "Frank Herbert", genre: "Science Fiction", url: "book5.html", image: "Images/book5.jpg" }
-];
-
-// Function to add a book to the wishlist
-// Function to add a book to the wishlist
-function addToWishlist(bookId) {
-    // Get the book URL based on the book ID
-    const book = books[bookId - 1];
-    const bookUrl = book.url;
-
-    // Get the current list of books from localStorage or initialize an empty array
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    // Check if the book URL already exists in the wishlist
-    if (!wishlist.includes(bookUrl)) {
-        // Add the new book URL to the wishlist
-        wishlist.push(bookUrl);
-
-        // Save the updated wishlist back to localStorage
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-        // Generate the wishlist display
-        generateWishlist();
-
-        // Debugging: Log the book URL and updated wishlist
-        console.log("Added to wishlist:", book.title);
-        console.log("Updated wishlist:", wishlist);
-    } else {
-        console.log("Book is already in the wishlist.");
-    }
-}
-
-
-// Function to remove a book from the wishlist
-function removeFromWishlist(bookUrl) {
-    // Get the current list of books from localStorage
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    // Find the index of the book URL to remove
-    const index = wishlist.findIndex(url => url === bookUrl);
-
-    // If the book URL is found in the wishlist, remove it
-    if (index !== -1) {
-        wishlist.splice(index, 1);
-        // Update the wishlist in localStorage
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        // Regenerate the wishlist display
-        generateWishlist();
-    }
-}
-
-// Function to generate the wishlist on the wishlist page
 function generateWishlist() {
     // Get the wishlist from localStorage
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -66,10 +8,13 @@ function generateWishlist() {
     // Clear any existing content in the container
     wishlistContainer.innerHTML = '';
 
-    // Generate wishlist items for each book in the wishlist and append them to the container
-    wishlist.forEach((bookUrl, index) => {
-        // Find the corresponding book object based on the URL
-        const book = books.find(book => book.url === bookUrl);
+    // Iterate over each book in the wishlist
+    wishlist.forEach((book, index) => {
+        
+        if (!book) {
+            console.log("Book at index", index, "is null or undefined");
+            return;
+        }
 
         // Create a div element for the wishlist item
         const wishlistItem = document.createElement('div');
@@ -77,7 +22,29 @@ function generateWishlist() {
 
         // Create an image element for the book cover
         const bookCover = document.createElement('img');
-        bookCover.src = book.image;
+        // Determine the correct image path based on the book title
+        let imagePath;
+        switch (book.title) {
+            case 'One Piece':
+                imagePath = 'Images/Book1.jpg';
+                break;
+            case 'Head First Objects-Oriented Analysis and Design':
+                imagePath = 'Images/Book2.jpg';
+                break;
+            case 'Fullmetal Alchemist':
+                imagePath = 'Images/Book3.jpg';
+                break;
+            case 'Stewart Calculus':
+                imagePath = 'Images/Book4.jpg';
+                break;
+            case 'Dune':
+                imagePath = 'Images/Book5.jpg';
+                break;
+            default:
+                // Use a default image path for other books
+                imagePath = 'Images/default.jpg';
+        }
+        bookCover.src = imagePath;
         bookCover.alt = book.title;
         wishlistItem.appendChild(bookCover);
 
@@ -107,10 +74,10 @@ function generateWishlist() {
         const removeButton = document.createElement('button');
         removeButton.classList.add('remove-button');
         removeButton.textContent = 'Remove';
-        // Set the book URL as a data attribute
-        removeButton.dataset.bookUrl = bookUrl;
+        // Set the book index as a data attribute
+        removeButton.dataset.bookIndex = index;
         removeButton.addEventListener('click', function() {
-            removeFromWishlist(bookUrl);
+            removeFromWishlist(index); // Pass the index to the remove function
         });
         wishlistItem.appendChild(removeButton);
 
@@ -119,30 +86,29 @@ function generateWishlist() {
     });
 }
 
+// Function to remove a book from the wishlist
+function removeFromWishlist(index) {
+    // Get the current list of books from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
-
+    // If the index is valid, remove the book at that index from the wishlist
+    if (index >= 0 && index < wishlist.length) {
+        wishlist.splice(index, 1);
+        // Update the wishlist in localStorage
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        // Regenerate the wishlist display
+        generateWishlist();
+    }
+}
 
 // Call the generateWishlist function when the wishlist page loads
 document.addEventListener('DOMContentLoaded', generateWishlist);
 
-// Add event listener to handle clicks on any wishlist button
-document.addEventListener('click', function(event) {
-    // Check if the clicked element has the class 'wishlist-button'
-    if (event.target.classList.contains('wishlist-button')) {
-        // Get the book ID from the ID of the clicked button
-        const bookId = parseInt(event.target.id.split('-')[2]);
-        // Call addToWishlist function with the book ID
-        addToWishlist(bookId);
-    }
-});
-
+// Add event listener to handle clicks on any remove button in the wishlist
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('remove-button')) {
-        const bookUrl = event.target.dataset.book-url;
-        removeFromWishlist(bookUrl);
+        // Retrieve the book index from the dataset
+        const bookIndex = parseInt(event.target.dataset.bookIndex);
+        removeFromWishlist(bookIndex);
     }
 });
-
-
-
-

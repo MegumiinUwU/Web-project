@@ -1,83 +1,7 @@
-// Array of books
-const boooks = [
-    { title: "One Piece", author: "Eiichiro Oda", genre: "Manga", url: "book1.html", image: "Images/book1.jpg" },
-    { title: "Head First Objects-Oriented Analysis and Design", author: "Brett D. McLaughlin", genre: "Programming", url: "book2.html", image: "Images/book2.jpg" },
-    { title: "Fullmetal Alchemist", author: "Hiromu Arakawa", genre: "Manga", url: "book3.html", image: "Images/book3.jpg" },
-    { title: "Stewart Calculus", author: "James Stewart", genre: "Mathematics", url: "book4.html", image: "Images/book4.jpg" },
-    { title: "Dune", author: "Frank Herbert", genre: "Science Fiction", url: "book5.html", image: "Images/book5.jpg" }
-];
-
-// Function to add a book to the borrowed list
-function addToBorrowed(bookId) {
-    // Get the book URL based on the book ID
-    const book = boooks[bookId - 1];
-    const bookUrl = book.url;
-
-    // Get the current list of borrowed books from localStorage or initialize an empty array
-    let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
-
-    // Check if the book URL already exists in the borrowed list
-    if (!borrowed.includes(bookUrl)) {
-        // Add the new book URL to the borrowed list
-        borrowed.push(bookUrl);
-
-        // Save the updated borrowed list back to localStorage
-        localStorage.setItem('borrowed', JSON.stringify(borrowed));
-
-        // Update the availability of the book to 'Unavailable' in localStorage
-        localStorage.setItem(`borrowed-${bookUrl}`, true);
-
-        // Generate the borrowed list display
-        generateBorrowed();
-
-        // Debugging: Log the book URL and updated borrowed list
-        console.log("Added to borrowed:", book.title);
-        console.log("Updated borrowed list:", borrowed);
-        
-        // Log the availability of the book in localStorage
-        console.log(`Availability of ${book.title}:`, localStorage.getItem(`borrowed-${bookUrl}`));
-    } else {
-        console.log("Book is already in the borrowed list.");
-    }
-}
-
-function removeFromBorrowed(bookUrl) {
-    // Get the current list of borrowed books from localStorage
-    let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
-
-    // Debugging: Log the book URL and current borrowed list before removal
-    console.log("Removing from borrowed:", bookUrl);
-    console.log("Current borrowed list:", borrowed);
-
-    // Check if the book URL exists in the borrowed list
-    const index = borrowed.indexOf(bookUrl);
-    console.log("Index found:", index);
-
-    // If the book URL is found in the borrowed list, remove it
-    if (index !== -1) {
-        borrowed.splice(index, 1);
-        // Update the borrowed list in localStorage
-        localStorage.setItem('borrowed', JSON.stringify(borrowed));
-
-        // Update the availability of the book to 'Available' in localStorage
-        localStorage.setItem(`borrowed-${bookUrl}`, false); // Set availability to false
-
-        // Regenerate the borrowed list display
-        generateBorrowed();
-        
-        // Log the updated borrowed list after removal
-        console.log("Updated borrowed list after removal:", borrowed);
-        
-        // Log the availability of the book in localStorage
-        console.log(`Availability of ${bookUrl}:`, localStorage.getItem(`borrowed-${bookUrl}`));
-    }
-}
-
-
-
-
-
 // Function to generate the borrowed list on the inventory page
+
+
+
 function generateBorrowed() {
     // Get the borrowed list from localStorage
     const borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
@@ -91,21 +15,45 @@ function generateBorrowed() {
     // Clear any existing content in the container
     borrowedContainer.innerHTML = '';
 
-    // Generate borrowed items for each book in the borrowed list and append them to the container
-    borrowed.forEach((bookUrl, index) => {
-        // Find the corresponding book object based on the URL
-        const book = boooks.find(book => book.url === bookUrl);
+    // Iterate over each book object in the borrowed list
+    borrowed.forEach((book, index) => {
+        // Skip if the book is null or undefined
+        if (!book) {
+            console.log("Book at index", index, "is null or undefined");
+            return;
+        }
 
-        // Debugging: Log the found book object
-        console.log("Book object:", book);
-
+        console.log("Generating HTML for book at index:", index);
         // Create a div element for the borrowed item
         const borrowedItem = document.createElement('div');
         borrowedItem.classList.add('inventory-item');
 
+        // Determine the correct image path based on the book title
+        let imagePath;
+        switch (book.title) {
+            case 'One Piece':
+                imagePath = 'Images/Book1.jpg';
+                break;
+            case 'Head First Objects-Oriented Analysis and Design':
+                imagePath = 'Images/Book2.jpg';
+                break;
+            case 'Fullmetal Alchemist':
+                imagePath = 'Images/Book3.jpg';
+                break;
+            case 'Stewart Calculus':
+                imagePath = 'Images/Book4.jpg';
+                break;
+            case 'Dune':
+                imagePath = 'Images/Book5.jpg';
+                break;
+            default:
+                // Use a default image path for other books
+                imagePath = 'Images/default.jpg';
+        }
+
         // Create an image element for the book cover
         const bookCover = document.createElement('img');
-        bookCover.src = book.image;
+        bookCover.src = imagePath;
         bookCover.alt = book.title;
         borrowedItem.appendChild(bookCover);
 
@@ -123,11 +71,6 @@ function generateBorrowed() {
         bookAuthor.textContent = 'Author: ' + book.author;
         bookDetails.appendChild(bookAuthor);
 
-        // Create a paragraph element for the book genre
-        const bookGenre = document.createElement('p');
-        bookGenre.textContent = 'Genre: ' + book.genre;
-        bookDetails.appendChild(bookGenre);
-
         // Append the book details to the borrowed item
         borrowedItem.appendChild(bookDetails);
 
@@ -135,10 +78,10 @@ function generateBorrowed() {
         const returnButton = document.createElement('button');
         returnButton.classList.add('return-button');
         returnButton.textContent = 'Return';
-        // Set the book URL as a data attribute
-        returnButton.dataset.bookUrl = bookUrl;
+        // Set the book index as a data attribute
+        returnButton.dataset.bookIndex = index;
         returnButton.addEventListener('click', function() {
-            removeFromBorrowed(bookUrl);
+            removeFromBorrowed(index);
         });
         borrowedItem.appendChild(returnButton);
 
@@ -150,21 +93,41 @@ function generateBorrowed() {
     console.log("Borrowed items generated successfully.");
 }
 
+// Function to remove a book from the borrowed list
+// Function to remove a book from the borrowed list
+// Function to remove a book from the borrowed list
+// Function to remove a book from the borrowed list
+function removeFromBorrowed(index) {
+    console.log("Removing book at index:", index);
+    // Get the current list of borrowed books from localStorage
+    let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
+
+    // If the index is valid, remove the book at that index from the borrowed list
+    if (index >= 0 && index < borrowed.length) {
+        console.log("Before removal:", borrowed);
+        borrowed.splice(index, 1);
+        console.log("After removal:", borrowed);
+
+        // Update the borrowed list in localStorage
+        localStorage.setItem('borrowed', JSON.stringify(borrowed));
+
+        // Regenerate the borrowed list display
+        generateBorrowed();
+
+        // Debugging: Log the updated borrowed list after removal
+        console.log("Updated borrowed list after removal:", borrowed);
+    }
+}
+
+
 // Call the generateBorrowed function when the inventory page loads
 document.addEventListener('DOMContentLoaded', generateBorrowed);
 
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('borrow-button')) {
-        console.log('Borrow button clicked');
-        const bookId = parseInt(event.target.id.split('-')[2]);
-        addToBorrowed(bookId);
-    }
-});
-
 // Add event listener to handle clicks on any return button
 document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('return-button')) {
-        const bookUrl = event.target.dataset.book-url;
-        removeFromBorrowed(bookUrl);
+    const returnButton = event.target.closest('.return-button');
+    if (returnButton) {
+        const bookIndex = parseInt(returnButton.dataset.bookIndex);
+        removeFromBorrowed(bookIndex);
     }
 });

@@ -1,4 +1,5 @@
-let books = [
+
+let b00ks = [
     {title: "One Piece",
     author: "Eiichiro Oda",
     genre: ["Shonen", "Adventure", "Fantasy"],
@@ -43,7 +44,15 @@ url: "book2.html"
     url: "book5.html"
 }];
 
+
+if (!localStorage.getItem("books")) {
+    localStorage.setItem("books", JSON.stringify(b00ks));
+}
+
 let images = ["Images/Book1.jpg","Images/book2.jpg","Images/book3.jpg","Images/book4.jpg","Images/book5.jpg"];
+const books = JSON.parse(localStorage.getItem("books"));
+
+
 
 //Nadra's fn
 function closingModal(){
@@ -161,12 +170,12 @@ function createBorrowBookDisplay() {
 
         const borrowButton = document.createElement('button');
         borrowButton.classList.add('borrow-button');
+        borrowButton.textContent = 'Borrow now'; // Button text
         borrowButton.id = "borrow-button-" + (index + 1);
-        updateBorrowButtonState(borrowButton, index, book.url); // Update borrow button state based on local storage
 
         const wishlistButton = document.createElement('button');
         wishlistButton.classList.add('wishlist-button');
-        wishlistButton.textContent = 'Add to wish list';
+        wishlistButton.textContent = 'Add to wishlist'; // Button text
         wishlistButton.id = "wishlist-button-" + (index + 1);
 
         const div2 = document.createElement('div');
@@ -188,42 +197,53 @@ function createBorrowBookDisplay() {
             document.getElementById('myModal').style.display = 'block';
         });
 
-        // const availability = document.createElement('button');
-        // availability.classList.add('availability');
-        // availability.textContent = 'Available';
-
-        // Add event listener to borrow button for borrowing or returning
+        // Add event listener to borrow button for borrowing
         borrowButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            // Check if book is already borrowed
-            const isBorrowed = localStorage.getItem(`borrowed-${book.url}`) === 'true';
-            console.log(`Book URL: ${book.url}, isBorrowed: ${isBorrowed}`);
-            if (!isBorrowed) {
-                // Book is not borrowed, update localStorage and button state
-                localStorage.setItem(`borrowed-${book.url}`, true);
-                updateBorrowButtonState(borrowButton, index, book.url);
-            } else {
-                // Book is borrowed, return it
-                localStorage.removeItem(`borrowed-${book.url}`);
-                updateBorrowButtonState(borrowButton, index, book.url);
-            }
-        });
+        event.preventDefault();
+        // Check if the book is already borrowed
+        let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
+        if (!isBookBorrowed(borrowed, book)) {
+            // If not borrowed, add the book to the borrowed list in localStorage
+            borrowed.push(book);
+            localStorage.setItem('borrowed', JSON.stringify(borrowed));
+            // Disable the borrow button
+            borrowButton.textContent = 'Unavailable';
+            borrowButton.style.backgroundColor = 'red';
+            borrowButton.disabled = true;
+        } else {
+            console.log("Book is already borrowed.");
+        }
+    });
 
-        // Function to update borrow button state
-        function updateBorrowButtonState(button, bookIndex, bookUrl) {
-            const isBorrowed = localStorage.getItem(`borrowed-${bookUrl}`) === 'true';
-            console.log(`Book URL: ${bookUrl}, isBorrowed: ${isBorrowed}`);
-            if (isBorrowed) {
-                button.textContent = 'Unavailable';
-                button.style.backgroundColor = 'red';
-                button.disabled = true;
-            } else {
-                button.textContent = 'Borrow now';
-                button.style.backgroundColor = ''; // Reset background color
-                button.disabled = false;
-            }
+    // Check if the book is already borrowed
+    let borrowed = JSON.parse(localStorage.getItem('borrowed')) || [];
+    if (isBookBorrowed(borrowed, book)) {
+        // If the book is already borrowed, disable the borrow button and set its color to red
+        borrowButton.textContent = 'Unavailable';
+        borrowButton.style.backgroundColor = 'red';
+        borrowButton.disabled = true;
+    }
+        
+        // Function to check if a book is already borrowed
+        function isBookBorrowed(borrowed, book) {
+            return borrowed.some(borrowedBook => borrowedBook.title === book.title);
         }
         
+        wishlistButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Add the book to the wishlist in localStorage
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            if (!wishlist.some(wishlistBook => wishlistBook.title === book.title)) {
+                wishlist.push(book);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                // Disable the wishlist button
+                wishlistButton.textContent = 'Added to wishlist';
+                wishlistButton.style.backgroundColor = 'green';
+                wishlistButton.disabled = true;
+            } else {
+                console.log("Book is already in the wishlist.");
+            }
+        });
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
@@ -232,7 +252,6 @@ function createBorrowBookDisplay() {
         div.appendChild(document.createElement('br'));
         div2.appendChild(previewButton);
         div2.appendChild(document.createElement('br'));
-        // div2.appendChild(availability);
         div.appendChild(div2);
         div2.appendChild(document.createElement('br'));
         div.appendChild(document.createElement('br'));
@@ -243,10 +262,6 @@ function createBorrowBookDisplay() {
         closingModal();
     });
 }
-
-
-
-
 
 
 
