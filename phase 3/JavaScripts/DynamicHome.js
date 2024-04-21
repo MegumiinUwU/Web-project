@@ -5,17 +5,18 @@ function getUserType() {
         if (isAdmin === "1") {
             userType = 'admin';
             localStorage.setItem('userType', 'admin'); 
-            window.location.href = "adminsview.html";
+            //window.location.href = "adminsview.html";
         } else if (isAdmin === "0") {
             userType = 'user';
             localStorage.setItem('userType', 'user'); 
-            window.location.href = "usersView.html";
+            //window.location.href = "usersView.html";
         } else {
             userType = 'default';
         }
     } else {
         userType = 'default';
     }
+    window.location.href = "HomePage.html";
 }
 
 function getUserTypeFromStorage() {

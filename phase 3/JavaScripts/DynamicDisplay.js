@@ -89,7 +89,7 @@ function DisplayAllBooks(){
     console.log(wishlistButton); //
 
     titleElement.textContent = Book.title;
-    authorElement.textContent = Book.author;
+    authorElement.textContent = Book.author1;
     genreElement.textContent = Book.genre.join(', '); // Convert the genre array to a comma-separated string
     publicationDateElement.textContent = Book.publicationDate;
     ISBNElement.textContent = Book.ISBN;
@@ -137,15 +137,93 @@ function createBookDisplay() {
             document.getElementById('myModal').style.display = 'block';
         });
         //
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('preview-button');
+        removeButton.textContent = 'Remove';
+        removeButton.dataset.title = book.title; 
+        
+        // Add event listener to the "Remove Book" button
+        removeButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Retrieve the title of the book associated with this button
+            const titleToRemove = this.dataset.title;
+            // Find the index of the book with the matching title
+            const indexToRemove = books.findIndex(book => book.title === titleToRemove);
+            if (indexToRemove !== -1) { // Check if the book is found
+                // Remove the book from the local storage
+                books.splice(indexToRemove, 1); // Remove the book from the array
+                localStorage.setItem("books", JSON.stringify(books)); // Update local storage
+                // Update the display
+                bookContainer.innerHTML = ''; // Clear the display
+                createBookDisplay(); // Re-create the display
+            } else {
+                console.log('Book not found.');
+            }
+        });
+        const editButton = document.createElement('button');
+        editButton.classList.add('preview-button');
+        editButton.textContent = 'Edit Book';
+        editButton.dataset.index = index;
+        editButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Retrieve the index of the book associated with this button
+            const indexToEdit = parseInt(this.dataset.index);
+            // Retrieve the book from the array
+            const bookToEdit = books[indexToEdit];
+        
+            // Populate the input fields with the current book details
+            const modalTitleInput = document.getElementById('modal-title-input');
+            const modalAuthorInput = document.getElementById('modal-author-input');
+            const modalGenreInput = document.getElementById('modal-genre-input');
+            modalTitleInput.value = bookToEdit.title;
+            modalAuthorInput.value = bookToEdit.author;
+            modalGenreInput.value = Array.isArray(bookToEdit.genre) ? bookToEdit.genre.join(', ') : '';
+        
+            // Show the modal
+            const editBookModal = document.getElementById('editBookModal');
+            editBookModal.style.display = 'block';
+        
+            // Add event listener to handle saving the changes
+            const saveChangesButton = document.getElementById('saveChangesButton');
+            saveChangesButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                // Retrieve the modified details from the input fields
+                const modifiedTitle = modalTitleInput.value;
+                const modifiedAuthor = modalAuthorInput.value;
+                const modifiedGenre = modalGenreInput.value.split(',').map(genre => genre.trim());
+                // Update the book details in the array
+                books[indexToEdit].title = modifiedTitle;
+                books[indexToEdit].author = modifiedAuthor;
+                books[indexToEdit].genre = modifiedGenre;
+                // Update localStorage with the updated books array
+                localStorage.setItem("books", JSON.stringify(books));
+                // Close the modal
+                editBookModal.style.display = 'none';
+                // Optionally, update the display to reflect the changes
+                bookContainer.innerHTML = ''; // Clear the display
+                createBookDisplay(); // Re-create the display
+            });
+        });
+        
+        
+        
+
         
         linkImg.appendChild(img);
         div.appendChild(linkImg);
         div.appendChild(linkTitle);
-        div.appendChild(document.createElement('br'));
+        
         div2.appendChild(previewButton);
-        div2.appendChild(document.createElement('br'));
+        
         // div2.appendChild(availability);
         div.appendChild(div2);
+        if (getUserTypeFromStorage() === 'admin') {
+            div.appendChild(removeButton);
+        }
+        if (getUserTypeFromStorage() === 'admin') {
+            div.appendChild(editButton);
+        }
+        
         bookContainer.appendChild(div);
         closingModal();
     });
@@ -180,6 +258,8 @@ function createBorrowBookDisplay() {
 
         const div2 = document.createElement('div');
         div2.classList.add('preview-available');
+
+        
 
         const previewButton = document.createElement('button');
         previewButton.classList.add('preview-button');
@@ -265,7 +345,7 @@ function createBorrowBookDisplay() {
 
 
 
-//WE NEED TO EDIT AND REMOVE HERE
+
 document.addEventListener('click', function(event) {
     // Check if the clicked element is an <a> tag
     console.log("Entered event");
