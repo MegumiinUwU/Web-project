@@ -1,0 +1,43 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  {% include 'includes/head.html' %}
+  {% block extrastyle %}{% endblock extrastyle %}
+  {% block extrahead %}{% endblock extrahead %}
+</head>
+<body>
+
+  {% block header %}
+    {% include 'includes/navigation.html' %}
+  {% endblock header %}
+
+  <!-- [ Main Content ] start -->
+  <div class="">
+    <div class="">
+      <div class="">
+        <div class="">
+          <div class="main">
+            <div class="">
+              {% block content %}{% endblock content %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<footer>
+  {% include "includes/footer.html" %}
+</footer>
+
+
+  {% include 'includes/scripts.html' %}
+  {% block extra_js %}{% endblock extra_js %}
+
+</body>
+</html>
