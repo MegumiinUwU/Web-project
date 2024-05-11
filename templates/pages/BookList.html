@@ -1,8 +1,18 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+{% block extrastyle %}
+<link rel="stylesheet" href="Styles/BookListing.css" />
+{% endblock extrastyle %}
+  
+
+{% block content %}
+<h1 class="book-heading">All Books</h1>
+{% endblock content %}
+  
+
+{% comment %} <head>
     <meta charset="UTF-8">
     <title>Books</title>
     <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
@@ -14,29 +24,9 @@
         import { createBookDisplay } from '{% static "JavaScripts/DynamicDisplay.js" %}';
         document.addEventListener('DOMContentLoaded', createBookDisplay);
     </script>    
-  </head>
-  <body>
-    <button id="darkModeToggle">🌞🌛</button>
-    <header>
-      <nav class="NavHome">
-        <div class="title">FCAI Library</div>
-        <a href="#" class="toggle-button">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="Profile.html">Profile</a></li>
-            <li><a href="usersView.html">Home</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="Borrowed Books.html">Borrow Books</a></li>
-            <li><a href="defaultview.html">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
+  </head> {% endcomment %}
 
-    </header>
+  {% comment %} <body>
     <h1 class="book-heading">All Books</h1>
     <div class="books">
     </div>
@@ -68,10 +58,4 @@
         <button type="submit" id="saveChangesButton">Save Changes</button>
       </form>
     </div>
-  </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 FCAI Online Library</p>
-    </footer>
-</body>
-</html>
+  </div> {% endcomment %}

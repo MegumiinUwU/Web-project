@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,24 +10,22 @@
 </head>
 <body>
 
+  <header>
   {% block header %}
     {% include 'includes/navigation.html' %}
+    <button id="darkModeToggle">🌞🌛</button>
   {% endblock header %}
+  
+  {% block extraheader %}{% endblock extraheader %}
+    
+  </header>
 
   <!-- [ Main Content ] start -->
+<div class="">
   <div class="">
-    <div class="">
-      <div class="">
-        <div class="">
-          <div class="main">
-            <div class="">
-              {% block content %}{% endblock content %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% block content %}{% endblock content %}
   </div>
+</div>
   
 <footer>
   {% include "includes/footer.html" %}
