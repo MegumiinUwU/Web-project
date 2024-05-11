@@ -10,7 +10,7 @@ urlpatterns = [
     
     path('borrowedBooks', views.borrowedBooks, name='borrowedBooks'),
     
-    path('homePage', views.homePage, name='homePage'), 
+    path('', views.homePage, name='homePage'), 
     
     path('inventory', views.inventory, name='inventory'),
     

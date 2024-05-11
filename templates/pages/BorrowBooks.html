@@ -1,11 +1,24 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Books</title>
 
-    <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+{% block extrastyle %}
+<link rel="stylesheet" href="Styles/BookListing.css" />
+{% endblock extrastyle %}
+
+
+{% block extrahead %}
+<title>Books</title>
+{% endblock extrahead %}
+  
+
+{% block content %}
+<h1 class="book-heading">Borrow Books</h1>
+<div class="books"></div>
+{% endblock content %}
+  
+
+    {% comment %} <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
     <!--<script src="{% static 'JavaScripts/buttonScript.js' %}" defer></script>-->
     <script src="{% static 'JavaScripts/DynamicHome.js' %}" defer></script>
     <script src="{% static 'JavaScripts/DarkmodeButton.js' %}" defer></script>
@@ -16,32 +29,10 @@
     <script type="module">
     import { createBorrowBookDisplay } from '{% static "JavaScripts/DynamicDisplay.js" %}';
     document.addEventListener('DOMContentLoaded', createBorrowBookDisplay);
-    </script>
+    </script> {% endcomment %}
 
 
-  </head>
-  <body>
-    <button id="darkModeToggle">🌞🌛</button>
-    <header>
-      <nav class="NavHome">
-        <div class="title">FCAI Library</div>
-        <a href="#" class="toggle-button">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="Profile.html">Profile</a></li>
-            <li><a href="usersView.html">Home</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="Borrowed Books.html">Borrow Books</a></li>
-            <li><a href="defaultview.html">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <h1 class="book-heading">Borrow Books</h1>
+    {% comment %} <h1 class="book-heading">Borrow Books</h1>
 
     <div class="books">
     </div>
@@ -55,10 +46,4 @@
           <p id="modal-publicationDate"></p>
           <p id="modal-description"></p>
       </div>
-  </div>
-    
-    <footer class="footer">
-        <p>&copy; 2024 FCAI Online Library</p>
-    </footer>
-</body>
-</html>
+  </div> {% endcomment %}

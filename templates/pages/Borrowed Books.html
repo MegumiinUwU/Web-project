@@ -1,47 +1,30 @@
+{% extends 'layouts/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Books</title>
-    <style>
-        td {
-            padding: 10px;
-            text-align: center;
-            vertical-align: top;
-        }
-    </style>
+{% comment %} WE HAVE DELETED THE IMAGES, SO THERE WILL BE NO IMAGES IN THIS PAGE (right now) {% endcomment %}
 
-    <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
-    <script src="{% static 'JavaScripts/buttonScript.js' %}" defer></script>
-    <script src="{% static 'JavaScripts/DarkmodeButton.js' %}" defer></script>
-    <script src="{% static 'JavaScripts/WishlistScript.js' %}" defer></script> 
-    <script src="{% static 'JavaScripts/Inventory.js' %}" defer></script>
 
-  </head>
-  <body>
-    <button id="darkModeToggle">🌞🌛</button>
-    <header>
-      <nav class="NavHome">
-        <div class="title">FCAI Library</div>
-        <a href="#" class="toggle-button">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="Profile.html">Profile</a></li>
-            <li><a href="usersView.html">Home</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="Borrowed Books.html">Borrow Books</a></li>
-            <!---->
-            <li><a href="defaultview.html">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <h1 class="book-heading">Borrow Books</h1>
+{% block extrahead %}
+<title>Books</title>
+<style>
+  td {
+      padding: 10px;
+      text-align: center;
+      vertical-align: top;
+  }
+</style>
+{% endblock extrahead %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+{% endblock extrastyle %}
+  
+
+{% block content %}
+  <h1 class="book-heading">Borrow Books</h1>
+{% endblock content %}
+
+{% comment %} <body>
     <div class="books">
         <div class="book">
             <a href="book1.html"><img src="Images/Book1.jpg" alt="One Piece"></a><br>
@@ -71,9 +54,5 @@
             <button class="borrow-button" id="borrow-button-5">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-5">Add to wish list</button>
         </div>
     </div>
-    
-    <footer class="footer">
-        <p>&copy; 2024 FCAI Online Library</p>
-    </footer>
-</body>
-</html>
+
+</body> {% endcomment %}
