@@ -128,3 +128,26 @@
   .center-button {
     text-align: center;
   }
+  .messages {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .messages li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .messages li.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+  }
+  
+  .messages li.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+  }
+  

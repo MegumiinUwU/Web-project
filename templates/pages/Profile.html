@@ -16,35 +16,64 @@
   
 <h1>User Details</h1>
 <div class="JoJo">
-  <form>
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
     <div class="avatar-container">
       <label for="profilePicture">Profile Picture:</label>
+      
       <!-- Hide the file input -->
       <input type="file" id="profilePicture" name="profilePicture" style="display: none;" />
       <!-- Add an image placeholder -->
       <label for="profilePicture" class="avatar-label">
-        <img src="Images/PfP.jpg" alt="Avatar" class="avatar" />
+        
+      
+        <img src="{{profile.image.url}}" alt="Avatar" class="avatar" />
+      
       </label>
+    
     </div>
 
     <div class="field">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" required />
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{profile.username}}" required />
     </div>
 
     <div class="field">
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" required />
+      <label for="oldpassword">Old Password:</label>
+      <input type="text" id="oldpassword" name="oldpassword" required required minlength="8"/>
+    </div>
+
+    <div class="field">
+      <label for="newpassword">New Password:</label>
+      <input type="text" id="newpassword" name="newpassword"  minlength="8"/>
+    </div>
+
+    <div class="field">
+      <label for="confirmpassword">Confirm Password:</label>
+      <input type="text" id="confirmpassword" name="confirmpassword"  minlength="8"/>
     </div>
 
     <div class="field">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" name="email" value="{{profile.email}}"required />
     </div>
 
     <div class="field">
       <label for="phoneNumber">Phone Number:</label>
-      <input type="tel" id="phoneNumber" name="phoneNumber" required />
+      <input type="tel" id="phoneNumber" name="phoneNumber" value="{{profile.phoneNumber}}"required />
+    </div>
+
+    <div class="field">
+      <label for="dateOfBirth">Date Of Birth:</label>
+      <input type="date" id="dateOfBirth" name="dateOfBirth" value="{{profile.date}}" required max="2026-12-31"/>
     </div>
 
     <div class="center-button">
