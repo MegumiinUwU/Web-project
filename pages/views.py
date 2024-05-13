@@ -43,17 +43,20 @@ def profile(request):
 
         if old_password == profile.password:
             profile_picture = request.FILES.get('profilePicture')
+            profile.username = request.POST.get('username')
+            profile.email = request.POST.get('email')
+            profile.phoneNumber = request.POST.get('phoneNumber')
+            profile.date = request.POST.get('dateOfBirth')
             if profile_picture:
                 profile.image.save(profile_picture.name, profile_picture)
+            profile.save()
             
             if new_password == confirm_password:
                  if new_password:
                     profile.password = new_password
-                    profile.username = request.POST.get('username')
-                    profile.email = request.POST.get('email')
-                    profile.phoneNumber = request.POST.get('phoneNumber')
-                    profile.date = request.POST.get('dateOfBirth')
                     profile.save()
+                    
+                    
             else:
                 messages.error(request, 'New password and confirmation do not match.')
         
