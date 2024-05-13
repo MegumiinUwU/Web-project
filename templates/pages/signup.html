@@ -654,23 +654,66 @@
           <label for="phone">Phone Number</label>
         </div>
         <br />
-        <div>
+        {% comment %} <div>
           <label for="is_admin">Account Type:</label>
           <select id="is_admin" name="is_admin" required>
             <option value="" disabled selected>Select Account Type</option>
             <option value="0">User</option>
             <option value="1">Admin</option>
           </select>
-        </div>
+        </div> {% endcomment %}
         <br />
         <button type="submit">Sign Up</button>
         <div class="oppositLink">
           <p>
-            If you already have an account: <a href="login.html">Login</a>
+            If you already have an account: <a href="{% url 'login' %}">Login</a>
           </p>
         </div>
       </form>
     </section>
   </main>
+  {% comment %} <script>
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirm_password");
+    const passwordLabel = document.querySelector('label[for="password"]');
+
+    // Set initial opacity to 1 (visible)
+    passwordLabel.style.opacity = '1';
+
+    // Hide the label when it's clicked
+    passwordLabel.addEventListener('click', () => {
+        passwordLabel.style.opacity = '0'; // Make label invisible
+    });
+
+    // Show the label again when focus is lost (if input is empty)
+    passwordInput.addEventListener('blur', () => {
+        if (!passwordInput.value.trim()) {
+            passwordLabel.style.opacity = '1'; // Make label visible
+        }
+    });
+
+    // Password validation logic
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        const confirm_password = confirmInput.value;
+
+        if (password !== confirm_password) {
+            confirmInput.setCustomValidity('Passwords do not match');
+        } else {
+            confirmInput.setCustomValidity('');
+        }
+    });
+
+    confirmInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        const confirm_password = confirmInput.value;
+
+        if (password !== confirm_password) {
+            confirmInput.setCustomValidity('Passwords do not match');
+        } else {
+            confirmInput.setCustomValidity('');
+        }
+    });
+</script> {% endcomment %}
 
 {% endblock content %}
