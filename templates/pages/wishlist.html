@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block extrahead %}
+<title>Wishlist - Online Library</title>
+{% endblock extrahead %}
+    
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'Styles/WishlistStyles.css' %}">
+{% endblock extrastyle %}
+    
+
+{% block content %}
+<h1>My Wishlist</h1>
+<main>    
+    <div class="wishlist-container"></div>
+</main>
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="Styles/BookListing.css" />
+{% endblock extrastyle %}
+  
+
+{% block content %}
+<h1 class="book-heading">All Books</h1>
+{% endblock content %}
+  
+
+{% comment %} <head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+    <!--<script src="{% static 'JavaScripts/buttonScript.js' %}" defer></script>-->
+    <script src="{% static 'JavaScripts/DynamicHome.js' %}" defer></script>
+    <script src="{% static 'JavaScripts/DarkmodeButton.js' %}" defer></script> 
+    <script src="{% static 'JavaScripts/DynamicDisplay.js' %}" type="module"></script>
+    <script type="module">
+        import { createBookDisplay } from '{% static "JavaScripts/DynamicDisplay.js" %}';
+        document.addEventListener('DOMContentLoaded', createBookDisplay);
+    </script>    
+  </head> {% endcomment %}
+
+  {% comment %} <body>
+    <h1 class="book-heading">All Books</h1>
+    <div class="books">
+    </div>
+    <!----->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span id="closeModalBtn" class="close">&times;</span>
+          <h2 id="modal-title"></h2>
+          <p id="modal-author"></p>
+          <p id="modal-publicationDate"></p>
+          <p id="modal-description"></p>
+      </div>
+  </div>
+  <div id="editBookModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeEditModal">&times;</span>
+      <h2>Edit Book Details</h2>
+      <form id="editBookForm">
+        <label for="modal-title-input">Title:</label>
+        <input type="text" id="modal-title-input" name="title">
+  
+        <label for="modal-author-input">Author:</label>
+        <input type="text" id="modal-author-input" name="author">
+  
+        <label for="modal-genre-input">Genre:</label>
+        <input type="text" id="modal-genre-input" name="genre">
+        
+        <button type="submit" id="saveChangesButton">Save Changes</button>
+      </form>
+    </div>
+  </div> {% endcomment %}

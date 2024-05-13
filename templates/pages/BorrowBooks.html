@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="Styles/BookListing.css" />
+{% endblock extrastyle %}
+
+
+{% block extrahead %}
+<title>Books</title>
+{% endblock extrahead %}
+  
+
+{% block content %}
+<h1 class="book-heading">Borrow Books</h1>
+<div class="books"></div>
+{% endblock content %}
+  
+
+    {% comment %} <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+    <!--<script src="{% static 'JavaScripts/buttonScript.js' %}" defer></script>-->
+    <script src="{% static 'JavaScripts/DynamicHome.js' %}" defer></script>
+    <script src="{% static 'JavaScripts/DarkmodeButton.js' %}" defer></script>
+    <script src="{% static 'JavaScripts/WishlistScript.js' %}" defer></script> 
+    <script src="{% static 'JavaScripts/DynamicDisplay.js' %}" type="module"></script>
+    <script src="{% static 'JavaScripts/Inventory.js' %}" defer></script>
+
+    <script type="module">
+    import { createBorrowBookDisplay } from '{% static "JavaScripts/DynamicDisplay.js" %}';
+    document.addEventListener('DOMContentLoaded', createBorrowBookDisplay);
+    </script> {% endcomment %}
+
+
+    {% comment %} <h1 class="book-heading">Borrow Books</h1>
+
+    <div class="books">
+    </div>
+
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span id="closeModalBtn" class="close">&times;</span>
+          <h2 id="modal-title"></h2>
+          <p id="modal-author"></p>
+          <p id="modal-publicationDate"></p>
+          <p id="modal-description"></p>
+      </div>
+  </div> {% endcomment %}

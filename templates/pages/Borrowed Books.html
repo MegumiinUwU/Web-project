@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% comment %} WE HAVE DELETED THE IMAGES, SO THERE WILL BE NO IMAGES IN THIS PAGE (right now) {% endcomment %}
+
+
+{% block extrahead %}
+<title>Books</title>
+<style>
+  td {
+      padding: 10px;
+      text-align: center;
+      vertical-align: top;
+  }
+</style>
+{% endblock extrahead %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+{% endblock extrastyle %}
+  
+
+{% block content %}
+  <h1 class="book-heading">Borrow Books</h1>
+{% endblock content %}
+
+{% comment %} <body>
+    <div class="books">
+        <div class="book">
+            <a href="book1.html"><img src="Images/Book1.jpg" alt="One Piece"></a><br>
+            <a href="book1.html">One Piece</a><br>
+            <button class="borrow-button" id="borrow-button-1">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-1">Add to wish list</button>
+        </div>
+        <div class="book">
+            <a href="book2.html"><img src="Images/book2.jpg" alt="Head First Objects-Oriented Analysis and Design"></a><br>
+            <a href="book2.html">Head First Object-Oriented Analysis and Design</a><br>
+            <button class="borrow-button" id="borrow-button-2" >Borrow now</button><br><button class="wishlist-button" id="wishlist-button-2">Add to wish list</button>
+        </div>
+    
+        <div class="book">
+            <a href="book3.html"><img src="Images/book3.jpg" alt="Fullmetal Alchemist"></a><br>
+            <a href="book3.html">Fullmetal Alchemist</a>  <br>
+            <button class="borrow-button" id="borrow-button-3">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-3">Add to wish list</button>
+        </div>
+       
+        <div class="book">
+            <a href="book4.html"><img src="Images/book4.jpg" alt="Stewart Calculus"></a><br>
+            <a href="book4.html">Stewart Calculus</a> <br>
+            <button class="borrow-button" id="borrow-button-4">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-4">Add to wish list</button>
+        </div>
+        <div class="book">
+            <a href="book5.html"><img src="Images/book5.jpg" alt="Dune"></a><br>
+            <a href="book5.html">Dune</a>  <br>
+            <button class="borrow-button" id="borrow-button-5">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-5">Add to wish list</button>
+        </div>
+    </div>
+
+</body> {% endcomment %}
