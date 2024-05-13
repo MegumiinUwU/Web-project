@@ -35,7 +35,7 @@ def inventory(request):
 
 
 def profile(request):
-    profile=Profile.objects.get(username='youesf')
+    profile=Profile.objects.get(username='Ronii')
     if request.method == 'POST':
         old_password = request.POST.get('oldpassword')
         new_password = request.POST.get('newpassword')
