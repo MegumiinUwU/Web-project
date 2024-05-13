@@ -1,3 +1,5 @@
 from django.db import models
+from . import regex
 
-# Create your models here.
+
+regex.check("20230607@stud.fci-cu.edu.eg")

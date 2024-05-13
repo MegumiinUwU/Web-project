@@ -1,21 +1,45 @@
 
 {% comment %}             WhatEver Code Need to be in the "<header></header>"                {% endcomment %}
 
+<nav class="NavHome">
 
-    <nav class="NavHome">
-        <div class="title">FCAI Library</div>
-        <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-            <ul>
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                <li><a href="{% url 'homePage' %}">Home</a></li>
-                <li><a href="{% url 'search' %}">Search</a></li>
-                <li><a href="{% url 'borrowedBooks' %}">Borrow Books</a></li>
-                <li><a href="{% url 'homePage' %}">Logout</a></li>
-            </ul>
-        </div>
-    </nav>
+    {% if user.isauthenticated%}
+    
+    <div class="title">FCAI Library</div>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'inventory' %}">Inventory</a></li>
+            <li><a href="{% url 'homePage' %}">Home</a></li>
+            <li><a href="{% url 'wishlist' %}">WishList</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+            <li><a href="{% url 'borrowedBooks' %}">Borrow Books</a></li>
+            <li><a href="{% url 'homePage' %}">Logout</a></li>
+        </ul>
+    </div>
+
+    {% else %}
+    <div class="title">FCAI Library</div>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="{% url 'homePage' %}">Home</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+            <li><a href="{% url 'bookList' %}">Book List</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+        </ul>
+    </div>
+    
+
+    {% endif%}
+</nav>

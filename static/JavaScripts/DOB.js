@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         dobLabel.style.opacity = '0'; // When input loses focus and is empty, make label invisible
       }
     });
-  });
+});
+
   document.addEventListener('DOMContentLoaded', function() {
     const countryCodeSelect = document.getElementById("country_code");
     const phoneInput = document.getElementById("phone");
