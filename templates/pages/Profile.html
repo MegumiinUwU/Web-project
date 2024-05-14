@@ -16,6 +16,7 @@
   
 <h1>User Details</h1>
 <div class="JoJo">
+
   {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -29,11 +30,12 @@
     <div class="avatar-container">
       <label for="profilePicture">Profile Picture:</label>
       
+
       <!-- Hide the file input -->
       <input type="file" id="profilePicture" name="profilePicture" style="display: none;" />
       <!-- Add an image placeholder -->
       <label for="profilePicture" class="avatar-label">
-        
+
       
         <img src="{{profile.image.url}}" alt="Avatar" class="avatar" />
       
@@ -59,11 +61,13 @@
     <div class="field">
       <label for="confirmpassword">Confirm Password:</label>
       <input type="text" id="confirmpassword" name="confirmpassword"  minlength="8"/>
+
     </div>
 
     <div class="field">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" value="{{profile.email}}"required />
+
     </div>
 
     <div class="field">
@@ -74,6 +78,7 @@
     <div class="field">
       <label for="dateOfBirth">Date Of Birth:</label>
       <input type="date" id="dateOfBirth" name="dateOfBirth" value="{{profile.date}}" required max="2026-12-31"/>
+
     </div>
 
     <div class="center-button">

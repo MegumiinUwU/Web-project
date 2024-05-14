@@ -1,5 +1,6 @@
 from django.db import models
 from . import regex
+
 # Create your models here.
 
 regex.check("20230607@stud.fci-cu.edu.eg")
@@ -10,3 +11,4 @@ class Profile(models.Model):
      email = models.CharField(max_length=50, default="user@gmail.com")
      phoneNumber=models.IntegerField(default=111111111111)
      date = models.DateField(null=True,blank=True)
+

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
   const dobInput = document.getElementById("dob");
   const dobLabel = document.querySelector('label[for="dob"]');
 
@@ -44,3 +45,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+

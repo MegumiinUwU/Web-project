@@ -1,4 +1,5 @@
 function toggleDarkMode() {
+
   const darkModeToggle = document.getElementById("darkModeToggle");
   const body = document.body;
 
@@ -45,3 +46,4 @@ function updateButtonBackground() {
 
 // Call the function when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", toggleDarkMode);
+
