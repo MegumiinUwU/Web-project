@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% comment %} WE HAVE DELETED THE IMAGES, SO THERE WILL BE NO IMAGES IN THIS PAGE (right now) {% endcomment %}
+
+{% block extrahead %}
+<title>Books</title>
+<style>
+    td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: top;
+    }
+  </style>
+  
+{% endblock extrahead %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
+<style>
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .pagination-link {
+        margin: 0 5px;
+        text-decoration: none;
+        color: chocolate;
+    }
+    
+    .current-page {
+        margin: 0 5px;
+        font-weight: bold;
+    }
+    
+    .disabled-pagination-link {
+        margin: 0 5px;
+        color: #ccc;
+    }
+</style>
+{% endblock extrastyle %}
+  
+{% block content %}
+<h1 class="book-heading">Borrow Books</h1>
+<div class="books">
+    {% for book in page_obj %}
+    <div class="book">
+        <h2>{{ book.title }}</h2>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination links -->
+{% if page_obj.has_other_pages %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page=1" class="pagination-link">&laquo; First</a>
+    <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">&lt; Previous</a>
+    {% else %}
+    <span class="disabled-pagination-link">&laquo; First</span>
+    <span class="disabled-pagination-link">&lt; Previous</span>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <span class="current-page">{{ num }}</span>
+    {% else %}
+    <a href="?page={{ num }}" class="pagination-link">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">Next &gt;</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-link">Last &raquo;</a>
+    {% else %}
+    <span class="disabled-pagination-link">Next &gt;</span>
+    <span class="disabled-pagination-link">Last &raquo;</span>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock content %}
