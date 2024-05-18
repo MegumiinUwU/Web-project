@@ -1,58 +1,128 @@
+<!-- BorrowBooks.html -->
+
 {% extends 'layouts/base.html' %}
 {% load static %}
 
 {% comment %} WE HAVE DELETED THE IMAGES, SO THERE WILL BE NO IMAGES IN THIS PAGE (right now) {% endcomment %}
 
-
 {% block extrahead %}
-<title>Books</title>
-<style>
-  td {
-      padding: 10px;
-      text-align: center;
-      vertical-align: top;
-  }
-</style>
+
 {% endblock extrahead %}
 
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'Styles/BookListing.css' %}" />
-{% endblock extrastyle %}
-  
-
-{% block content %}
-  <h1 class="book-heading">Borrow Books</h1>
-{% endblock content %}
-
-{% comment %} <body>
-    <div class="books">
-        <div class="book">
-            <a href="book1.html"><img src="Images/Book1.jpg" alt="One Piece"></a><br>
-            <a href="book1.html">One Piece</a><br>
-            <button class="borrow-button" id="borrow-button-1">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-1">Add to wish list</button>
-        </div>
-        <div class="book">
-            <a href="book2.html"><img src="Images/book2.jpg" alt="Head First Objects-Oriented Analysis and Design"></a><br>
-            <a href="book2.html">Head First Object-Oriented Analysis and Design</a><br>
-            <button class="borrow-button" id="borrow-button-2" >Borrow now</button><br><button class="wishlist-button" id="wishlist-button-2">Add to wish list</button>
-        </div>
+<style>
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
     
-        <div class="book">
-            <a href="book3.html"><img src="Images/book3.jpg" alt="Fullmetal Alchemist"></a><br>
-            <a href="book3.html">Fullmetal Alchemist</a>  <br>
-            <button class="borrow-button" id="borrow-button-3">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-3">Add to wish list</button>
-        </div>
-       
-        <div class="book">
-            <a href="book4.html"><img src="Images/book4.jpg" alt="Stewart Calculus"></a><br>
-            <a href="book4.html">Stewart Calculus</a> <br>
-            <button class="borrow-button" id="borrow-button-4">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-4">Add to wish list</button>
-        </div>
-        <div class="book">
-            <a href="book5.html"><img src="Images/book5.jpg" alt="Dune"></a><br>
-            <a href="book5.html">Dune</a>  <br>
-            <button class="borrow-button" id="borrow-button-5">Borrow now</button><br><button class="wishlist-button" id="wishlist-button-5">Add to wish list</button>
-        </div>
-    </div>
+    .pagination-link {
+        margin: 0 5px;
+        text-decoration: none;
+        color: chocolate;
+    }
+    
+    .current-page {
+        margin: 0 5px;
+        font-weight: bold;
+    }
+    
+    .disabled-pagination-link {
+        margin: 0 5px;
+        color: #ccc;
+    }
+    
+    .filter-form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #category  {
+    padding: 10px;
+    border: 1px solid #00303f; /* Dark blue border */
+    border-radius: 5px;
+    width: 60%;
+  }
+  
+  #category::placeholder {
+    color: #00303f; /* Dark blue placeholder text color */
+  }
+  
+  .filter-form button {
+    padding: 10px 20px;
+    background-color: #00303f; /* Dark blue button background */
+    color: white; /* White button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sfilter-form button:hover {
+    background-color: #023f51; /* Darker blue on hover */
+  }
+  
+</style>
 
-</body> {% endcomment %}
+
+
+
+{% endblock extrastyle %}
+
+{% block content  %}
+<div class="intro">
+    <h1>Borrow Book</h1>
+    <h3>Your Online Book Heaven</h3>
+</div>  
+<!-- Form for filtering books -->
+<p >
+    <form method="post" action="{% url 'borrowedBooks' %}" class="filter-form"  >
+        {% csrf_token %}
+        <label for="category">Filter by Category:</label>
+        <input type="text" name="category" id="category">
+        <button type="submit" >Filter</button>
+    </form>
+</p>
+
+
+<!-- Display books --> 
+<div class="books">
+    {% for book in page_obj %}
+    <div class="book">
+        <h2>{{ book.title }}</h2>
+    </div>
+    {% empty %}
+    <p>No books found.</p>
+    {% endfor %}
+</div>
+
+<!-- Pagination links -->
+{% if page_obj.has_other_pages %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="{{ base_url }}&page=1" class="pagination-link">&laquo; First</a>
+    <a href="{{ base_url }}&page={{ page_obj.previous_page_number }}" class="pagination-link">&lt; Previous</a>
+    {% else %}
+    <span class="disabled-pagination-link">&laquo; First</span>
+    <span class="disabled-pagination-link">&lt; Previous</span>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <span class="current-page">{{ num }}</span>
+    {% else %}
+    <a href="{{ base_url }}&page={{ num }}" class="pagination-link">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <a href="{{ base_url }}&page={{ page_obj.next_page_number }}" class="pagination-link">Next &gt;</a>
+    <a href="{{ base_url }}&page={{ page_obj.paginator.num_pages }}" class="pagination-link">Last &raquo;</a>
+    {% else %}
+    <span class="disabled-pagination-link">Next &gt;</span>
+    <span class="disabled-pagination-link">Last &raquo;</span>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock content %}
