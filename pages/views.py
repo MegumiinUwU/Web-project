@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Profile
+from django.contrib import messages
 from django.core.paginator import Paginator
 from django.urls import reverse
+# from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -49,10 +52,9 @@ books_dict = {
 }
 
 
-
 def bookListing(request):
     category = request.POST.get('category', '') if request.method == 'POST' else request.GET.get('category', '')
-    
+
     # Filter books based on category
     filtered_books = [book for book in books_dict.values() if category.lower() in book['category'].lower()]
     paginator = Paginator(filtered_books, 8)  # Paginate filtered books
@@ -65,13 +67,14 @@ def bookListing(request):
         base_url += f'?category={category}'
 
     return render(request, 'pages/Book Listing.html', {'page_obj': page_obj, 'category': category, 'base_url': base_url})
+
 def bookList(request):
     return render(request, 'pages/BookList.html')
 
 
-
 def borrowBooks(request):
     return render(request, 'pages/BorrowBooks.html')
+
 
 def borrowedBooks(request):
     category = request.POST.get('category', '') if request.method == 'POST' else request.GET.get('category', '')
@@ -88,8 +91,6 @@ def borrowedBooks(request):
         base_url += f'?category={category}'
 
     return render(request, 'pages/Borrowed Books.html', {'page_obj': page_obj, 'category': category, 'base_url': base_url})
-    
-    
 
 
 def homePage(request):
@@ -101,8 +102,37 @@ def inventory(request):
 
 
 def profile(request):
-    return render(request, 'pages/Profile.html')
+    profile=Profile.objects.get(username='Ronii')
+    if request.method == 'POST':
+        old_password = request.POST.get('oldpassword')
+        new_password = request.POST.get('newpassword')
+        confirm_password = request.POST.get('confirmpassword')
+     
 
+        if old_password == profile.password:
+            profile_picture = request.FILES.get('profilePicture')
+            profile.username = request.POST.get('username')
+            profile.email = request.POST.get('email')
+            profile.phoneNumber = request.POST.get('phoneNumber')
+            profile.date = request.POST.get('dateOfBirth')
+            if profile_picture:
+                profile.image.save(profile_picture.name, profile_picture)
+            profile.save()
+            
+            if new_password == confirm_password:
+                 if new_password:
+                    profile.password = new_password
+                    profile.save()
+                    
+                    
+            else:
+                messages.error(request, 'New password and confirmation do not match.')
+        
+        else:
+            messages.error(request, 'The password you entered is incorrect.')
+  
+    return render(request, 'pages/Profile.html',{"profile":profile})
+ 
 
 def addBook(request):
     return render(request, 'pages/addBook.html')
@@ -122,3 +152,6 @@ def signup(request):
 
 def wishlist(request):
     return render(request, 'pages/wishlist.html')
+
+def adminsview(request):
+    return render(request, 'pages/adminsview.html')

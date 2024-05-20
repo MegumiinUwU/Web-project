@@ -3,7 +3,7 @@
 
 <nav class="NavHome">
 
-    {% if user.isauthenticated %}
+    {% if 1 %}
     
     <div class="title">FCAI Library</div>
     <a href="#" class="toggle-button">
@@ -12,16 +12,15 @@
         <span class="bar"></span>
     </a>
     <div class="navbar-links">
-        <ul>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'inventory' %}">Inventory</a></li>
-            <li><a href="{% url 'homePage' %}">Home</a></li>
-            <li><a href="{% url 'wishlist' %}">WishList</a></li>
-            <li><a href="{% url 'search' %}">Search</a></li>
-            <li><a href="{% url 'borrowedBooks' %}">Borrow Books</a></li>
-            <li><a href="{% url 'homePage' %}">Logout</a></li>
-        </ul>
-    </div>
+                <ul>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'adminsview' %}">Home</a></li>
+                    <li><a href="{% url 'search' %}">Search</a></li>
+                    <li><a href="{% url 'addBook' %}">Add Book</a></li>
+                    <li><a href="{% url 'bookListing' %}">View Books</a></li>
+                    <li><a href="{% url 'homePage' %}">Logout</a></li>
+                </ul>
+            </div>
 
     {% else %}
     <div class="title">FCAI Library</div>

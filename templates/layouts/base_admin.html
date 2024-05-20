@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  {% include 'includes/head.html' %}
+  {% block extrastyle %}{% endblock extrastyle %}
+  {% block extrahead %}{% endblock extrahead %}
+</head>
+<body>
+
+  <header>
+  {% block header %}
+    {% include 'includes/adminnavigation.html' %}
+    <button id="darkModeToggle">🌞🌛</button>
+  {% endblock header %}
+  
+  {% block extraheader %}{% endblock extraheader %}
+    
+  </header>
+
+  <!-- [ Main Content ] start -->
+<div class="">
+  <div class="">
+    {% block content %}{% endblock content %}
+  </div>
+</div>
+  
+<footer>
+  {% include "includes/footer.html" %}
+</footer>
+
+
+  {% include 'includes/scripts.html' %}
+  {% block extra_js %}{% endblock extra_js %}
+
+</body>
+</html>
