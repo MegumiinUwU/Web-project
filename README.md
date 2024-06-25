@@ -72,3 +72,11 @@ Dark Mode
 
 and more ...
 
+## Contributors
+
+- Youssef Mohamed
+- Nada Ahmed
+- Mariam Amro
+- Nadra Mahmoud
+- Rana Ibrahim
+- Mazen AbdelFattah
